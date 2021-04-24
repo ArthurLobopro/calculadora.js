@@ -1,5 +1,8 @@
-import { soma,calc } from "./operations-functions.js";
-const  visorDown = document.getElementById("down-visor")
+import { calc, parceTop } from "./operations-functions.js";
+const get = id => document.getElementById(id)
+
+const  visorDown = get("down-visor")
+const visorUp = get("up-visor")
 
 const keyFunctions = {
     "Backspace": ()=> {
@@ -8,11 +11,13 @@ const keyFunctions = {
     },
 
     "Delete": () => visorDown.innerText = "0",
+    "Escape": () => {
+        visorDown.innerText = "0"
+        visorUp.innerText = ""
+    },
     
-    "+": () => {
-        visorDown.innerText += " +"
-        soma()
-    } ,
+    "parse": parceTop,
+
     "Enter": calc
 }
 export default keyFunctions
