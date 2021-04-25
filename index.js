@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     const body = document.body
     const  visorDown = document.getElementById("down-visor")
     const visorUp = get("up-visor")
-    const operations = ["+","-","*","/"]
+    const operations = ["+","-","x","/"]
 
     body.onkeydown = event => {
         const key = String(event.key)
