@@ -17,7 +17,7 @@ const parceTop = key => {
 }
 
 const calc = () => {
-    const text = String( visorUp.innerText + visorDown.innerText ).replaceAll(" ","")
+    const text = String( visorUp.innerText + visorDown.innerText ).replaceAll(" ","").replaceAll(",",".")
     let key
 
     for(let s of operations_simbols){
@@ -30,7 +30,7 @@ const calc = () => {
     let values = text.split(key)
     const total = operations[key]( Number(values[0]), Number(values[1]))
     visorUp.innerText = ""
-    visorDown.innerText = total
+    visorDown.innerText = String(total).replaceAll(".",",")
 }
 
 export { calc, parceTop }

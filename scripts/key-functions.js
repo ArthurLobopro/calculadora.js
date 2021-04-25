@@ -1,7 +1,7 @@
 import { calc, parceTop } from "./operations-functions.js";
 const get = id => document.getElementById(id)
 
-const  visorDown = get("down-visor")
+const visorDown = get("down-visor")
 const visorUp = get("up-visor")
 
 const keyFunctions = {
@@ -18,6 +18,10 @@ const keyFunctions = {
     
     "parse": parceTop,
 
-    "Enter": calc
+    "Enter": ()=> {
+        if(visorDown.innerText !== "" && visorUp.innerText !== ""){
+            calc()
+        }
+    }
 }
 export default keyFunctions
