@@ -17,6 +17,12 @@ const keyFunctions = {
         visorDown.innerText = "0"
         visorUp.innerText = ""
     },
+
+    "*": ()=> {
+        const event = new Event("keydown")
+        event.key = "x"
+        document.body.dispatchEvent(event)
+    },
     
     "parse": parceTop,
 
