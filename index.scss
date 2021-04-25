@@ -3,18 +3,25 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    font-family: "Nunito";
+}
 #container{
-    width: max-content;
+    width: inherit;
+    height: 100%;
     margin: auto;
     background: #303030;
     box-sizing: content-box;
-    padding: 5px;
+    padding: 0 5px 5px;
 }
 #buttons{
+    width: 250px;
+    height: 250px;
     display: grid;
-    grid-template-columns: 50px 50px 50px 50px;
-    grid-template-rows: 50px 50px 50px;
-    grid-gap: 5px;
+    grid-template-columns: auto auto auto auto;
+    //grid-gap: 7px;
+    justify-content: space-between;
+    align-content: space-between;
 }
 #visor{
     background-color: #000;
