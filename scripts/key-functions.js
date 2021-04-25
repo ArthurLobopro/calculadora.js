@@ -8,6 +8,8 @@ const keyFunctions = {
     "Backspace": ()=> {
         const text = visorDown.innerText 
         visorDown.innerText = text.substring(0,text.length - 1)
+        if(visorDown.innerText == "")
+            visorDown.innerText = "0"
     },
 
     "Delete": () => visorDown.innerText = "0",

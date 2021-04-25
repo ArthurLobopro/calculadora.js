@@ -7,7 +7,7 @@ function mainWindow(){
     const win = new BrowserWindow({
         frame: false,
         width: 260,
-        height: 365,
+        height: 415,
         resizable: false,
         maximizable: false,
         icon: path.join(__dirname,"../assets/icon.png"),

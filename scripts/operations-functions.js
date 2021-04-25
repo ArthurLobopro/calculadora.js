@@ -1,13 +1,14 @@
 const get = id => document.getElementById(id)
 const  visorDown = get("down-visor")
 const visorUp = get("up-visor")
-const operations_simbols = ["+","-","x","/"]
+const operations_simbols = ["+","-","x","/","%"]
 
 const operations = {
     "+": (n1,n2) =>  n1 + n2,
     "-": (n1,n2) => n1 - n2,
     "/": (n1,n2) => n1/n2,
-    "x": (n1,n2) => n1 * n2
+    "x": (n1,n2) => n1 * n2,
+    "%": (n1,n2) => n2 * n1 / 100
 }
 
 const parceTop = key => {

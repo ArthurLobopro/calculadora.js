@@ -21,7 +21,7 @@ body {
 
 #buttons {
   width: 250px;
-  height: 250px;
+  height: 300px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: auto auto auto auto;
