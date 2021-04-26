@@ -23,6 +23,12 @@ const keyFunctions = {
         event.key = "x"
         document.body.dispatchEvent(event)
     },
+    "pow": ()=> {
+        visorDown.innerText = Number(visorDown.innerText)**2
+    },
+    "sqrt": ()=> {
+        visorDown.innerText = Math.sqrt(Number(visorDown.innerText))
+    },
     
     "parse": parceTop,
 
