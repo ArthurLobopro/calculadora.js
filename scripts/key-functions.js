@@ -24,10 +24,10 @@ const keyFunctions = {
         document.body.dispatchEvent(event)
     },
     "pow": ()=> {
-        visorDown.innerText = Number(visorDown.innerText)**2
+        visorDown.innerText = Number(visorDown.innerText.replaceAll(" ","").replaceAll(",","."))**2
     },
     "sqrt": ()=> {
-        visorDown.innerText = Math.sqrt(Number(visorDown.innerText))
+        visorDown.innerText = Math.sqrt(Number(visorDown.innerText).replaceAll(" ","").replaceAll(",","."))
     },
     
     "parse": parceTop,
