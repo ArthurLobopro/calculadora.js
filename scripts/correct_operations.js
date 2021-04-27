@@ -30,4 +30,15 @@ function div(n1,n2){
     return (n1*multi) / (n2*multi)
 }
 
-export {soma, sub, mult, div}
+function pow(n, exp = 2) {
+    let mult = 1
+    let n_l = String(n).length - String(n).indexOf('.') - 1
+    mult = 10 ** n_l
+    let total = 1
+    for(let i =0;i<exp; i++){
+        total*= (n * mult)
+    }
+    return total / mult ** exp
+}
+
+export { soma, sub, mult, div, pow }
