@@ -2,7 +2,7 @@ import * as correct from "./correct_operations.js";
 const get = id => document.getElementById(id)
 const  visorDown = get("down-visor")
 const visorUp = get("up-visor")
-const operations_simbols = ["+","-","x","/","%","*","^"]
+const operations_simbols = ["+","x","/","%","*","^","-"]
 
 const operations = {
     "+": (n1,n2) =>  correct.soma(n1,n2),
@@ -30,7 +30,15 @@ const calc = () => {
         }
     }
     
-    let values = text.split(key)
+    let values 
+    if (text[0] == "-") {
+        const subs = text.substr(1, text.length - 1)
+        values = subs.split(key,2)
+        values[0] = "-" + values[0]
+    }else{
+        values = text.split(key,2)
+    }
+    
     const total = operations[key]( Number(values[0]), Number(values[1]))
     visorUp.innerText = ""
     visorDown.innerText = String(total).replaceAll(".",",")
