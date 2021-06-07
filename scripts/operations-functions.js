@@ -16,7 +16,7 @@ const operations = {
 const parceTop = key => {
     const text = visorDown.innerText 
     visorDown.innerText = ""
-    visorUp.innerText = `${text} ${key}`
+    visorUp.innerText = `${text.replace('Indefinido','0')} ${key}`
 }
 
 const calc = () => {
