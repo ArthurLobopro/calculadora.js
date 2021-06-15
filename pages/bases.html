@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bases Decimais</title>
     <link rel="stylesheet" href="./css/bases.css">
+    <script src="./js/bases.js" type="module"></script>
 </head>
 <body>
     <div id="container">
         <div id="visor">
-            <textarea id="input">0</textarea>
+            <div id="input">0</div>
             <div>
                 <div>HEX: <span id="hex">0</span></div>
                 <div>DEC: <span id="dec">0</span></div>
@@ -21,7 +22,7 @@
         <div id="buttons">
 
             
-            <select class="long" id="">
+            <select class="long" id="bases">
                 <option value="dec">Decimal</option>
                 <option value="hex">Hexadecimal</option>
                 <option value="oct">Octal</option>
