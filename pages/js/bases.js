@@ -62,3 +62,22 @@ const buttons = document.querySelectorAll('.button')
 buttons.forEach( e => e.onclick = clickButtons)
 
 const bases_select = get("bases")
+
+bases_select.onchange = () => {
+    const newBase = bases_select.value
+    const value = get(newBase).innerText
+    input.innerText = value
+    buttons.forEach( b => {
+        if(b.classList.contains('disable')){
+            b.classList.remove('disable')
+        }
+    })
+    buttons.forEach( b => {
+        const value = b.dataset.value
+        if(digitos[newBase].indexOf(value) === -1){
+            b.classList.add('disable')
+        }
+    })
+    document.querySelector('[data-value="Backspace"]').classList.remove('disable')
+    calc()
+}
