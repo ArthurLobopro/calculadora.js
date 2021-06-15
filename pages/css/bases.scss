@@ -69,16 +69,8 @@ body{
         justify-content: flex-end;
         align-items: flex-end;
         height: 25px;
-        resize: none;
-        background-color: inherit;
-        color: inherit;
-        text-align: right;
         border: none;
         font-family: 'Nunito';
-        &:focus{
-            border: none;
-            outline: none;
-        }
     }
     & > div > div{
         display: flex;
