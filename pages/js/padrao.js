@@ -1,7 +1,7 @@
 const get = id => document.getElementById(id)
 
-import keyFunctions from "../../scripts/key-functions.js"
-import { calc } from "../../scripts/operations-functions.js"
+import keyFunctions from "../../public/scripts/key-functions.js"
+import { calc } from "../../public/scripts/operations-functions.js"
 
 document.addEventListener("DOMContentLoaded",()=>{
     const body = document.body
