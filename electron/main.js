@@ -6,11 +6,11 @@ require("./header-actions-main.js")
 function mainWindow(){
     const win = new BrowserWindow({
         frame: false,
-        width: 300,
-        minWidth:260,
-        height: 455,
-        minHeight: 455,
-        //resizable: false,
+        width: 315,
+        minWidth: 315,
+        height: 485,
+        minHeight: 485,
+        resizable: false,
         maximizable: false,
         icon: path.join(__dirname,"../assets/icon.png"),
         webPreferences:{
