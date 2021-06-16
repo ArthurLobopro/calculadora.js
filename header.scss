@@ -1,4 +1,4 @@
-@import url(public/css/fonts/Nunito-Regular.css);
+@import url(./public/fonts/css-import/Nunito-Regular.css);
 #electron-header{
     padding: 0 5px;
     position: fixed;
@@ -13,7 +13,7 @@
     margin: 0;
     padding: 0 0 0 2px ;
     box-sizing: border-box;
-    background-color: #303030;
+    background-color: #1e1e1e;
     color: #ddd;
     user-select: none;
     -webkit-app-region: drag;
