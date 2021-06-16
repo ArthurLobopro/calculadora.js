@@ -10,13 +10,13 @@ const digitos = {
 const get = id => document.getElementById(id)
 
 const validateAndWrite = (digito,base) => {
-    let content = ""
-    if(digitos[base].indexOf(digito) !== -1) content =  digito
-    
-    if(input.innerText == "0"){
-        input.innerText = content
-    }else{
-        input.innerText += content
+    if(digitos[base].indexOf(digito) !== -1){
+        let content =  digito
+        if(input.innerText == "0"){
+            input.innerText = content
+        }else{
+            input.innerText += content
+        }
     }
 }
 
