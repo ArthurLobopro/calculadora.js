@@ -9,6 +9,24 @@
     <title>Calculadora.js</title>
 </head>
 <body>
-    <iframe src="./pages/padrao.html" width="100%" height="100%" frameborder="0"></iframe>
+    <div id="container">
+        <img src="./assets/menu.png" width="25px" id="menu-expand" onclick="document.getElementById('menu').classList.toggle('visible')">
+        <div id="menu">
+            <ul>
+                <li data-src="./pages/padrao.html">Padrão</li>
+                <li data-src="./pages/bases.html">Bases</li>
+            </ul>
+        </div>
+        <iframe src="./pages/padrao.html" width="100%" height="100%" frameborder="0"></iframe>
+        <script>
+            const buttons = document.querySelectorAll('ul > li')
+            buttons.forEach( e => {
+                e.onclick = event => {
+                    const src = event.target.dataset.src
+                    document.querySelector('iframe').src = src
+                }
+            })
+        </script>
+    </div>
 </body>
 </html>
