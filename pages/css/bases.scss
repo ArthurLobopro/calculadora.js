@@ -13,7 +13,7 @@ $componets-fundo: #000;
 body{
     font-family: "Nunito";
     background: $fundo;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     display: flex;
 }
@@ -26,7 +26,6 @@ body{
     align-self: center;
     margin: auto;
     box-sizing: content-box;
-    padding: 0 5px 5px;
     display: grid;
     grid-template-rows: max-content auto;
 }
@@ -35,7 +34,7 @@ body{
     height: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     grid-gap: 7px;
     grid: autoflow/ repeat(4, 1fr);
     //justify-content: space-between;
