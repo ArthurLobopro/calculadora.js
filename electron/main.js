@@ -10,7 +10,7 @@ function mainWindow(){
         minWidth: 315,
         height: 485,
         minHeight: 485,
-        //resizable: false,
+        resizable: false,
         maximizable: false,
         icon: path.join(__dirname,"../assets/icon.png"),
         webPreferences:{
