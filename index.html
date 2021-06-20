@@ -5,36 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <link rel="shortcut icon" href="./assets/icon.png">
-    <script src="index.js" type="module"></script>
     <title>Calculadora.js</title>
+    <script src="index.js" type="module"></script>
 </head>
 <body>
     <div id="container">
-        <img src="./assets/menu.png" width="25px" id="menu-expand" onclick="document.getElementById('menu').classList.toggle('visible')">
-        <div id="menu">
-            <ul>
-                <li data-src="./pages/padrao.html">Padrão</li>
-                <li data-src="./pages/bases.html">Bases</li>
-                <li data-src="./pages/data.html">Data</li>
-            </ul>
+        <img src="./assets/menu.png" width="25px" id="menu-expand">
+        <div id="fundo-invisivel">
+            <div id="menu">
+                <ul>
+                    <li data-src="./pages/padrao.html">Padrão</li>
+                    <li data-src="./pages/bases.html">Bases</li>
+                    <li data-src="./pages/data.html">Data</li>
+                </ul>
+            </div>
         </div>
         <iframe src="./pages/padrao.html" width="100%" height="100%" frameborder="0"></iframe>
-        <script>
-            const buttons = document.querySelectorAll('ul > li')
-            buttons.forEach( e => {
-                e.onclick = event => {
-                    const src = event.target.dataset.src
-                    const iframe = document.querySelector('iframe')
-                    if(iframe.src !== src) iframe.src = src
-                    document.getElementById('menu-expand').click()
-                }
-            })
-            window.onresize = () => {
-                const menu = document.getElementById('menu')
-                const container = document.getElementById('container')
-                menu.style.left = container.offsetLeft + "px"
-            }
-        </script>
     </div>
 </body>
 </html>
