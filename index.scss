@@ -86,3 +86,15 @@ iframe{
         display: initial;
     }
 }
+
+#fundo-invisivel{
+    position: fixed;
+    left: 0;
+    top: 30px;
+    width: 100%;
+    height: 100%;
+    display: none;
+    &.visible{
+        display: block;
+    }
+}
