@@ -5,6 +5,7 @@ window.onload = () => {
     console.log(dateString);
     console.log(date);
     document.querySelectorAll('input[type="date"]').forEach( e => e.value = dateString)
+    calc()
 }
 
 const de = document.getElementById('de')
@@ -78,13 +79,21 @@ const calc = () => {
         para: new Date(paraValue)
     }
 
+    if(data.de - 1=== data.para - 1){
+        return  visor.innerText = "Mesma data"
+    }
     // dana - data = diferença em ms, dividido por 1000 = diferença em segundos, dividido por 86400, diferença em dias
     const dias = ((new Date(paraValue) - new Date(deValue)) /1000 ) / 86400
     const dif = getDiferenca(dias,data)
+    
+    const resString = [
+        dif.anos !== 0 ? `Anos: ${dif.anos} ano${dif.anos !== 1 ? 's' : ''}\n` : '',
+        dif.meses !== 0 ? `Meses: ${dif.meses} ${dif.meses === 1 ? 'mês' : 'meses'}\n` : '',
+        dif.dias !== 0 ? `Dias: ${dif.dias} dia${dif.dias !== 1 ? 's': ''}\n` : '',
+        `Total de dias: ${dias}`
+    ].join('')
 
-    visor.innerText = `Anos: ${dif.anos}\nMeses: ${dif.meses}\nDias: ${dif.dias}\n
-    Total de dias: ${dias}`
-
+    visor.innerText = resString
 }
 
 [de,para].forEach( input => input.onchange = calc)
