@@ -1,6 +1,7 @@
 const buttons = document.querySelectorAll('ul > li')
 buttons.forEach( e => {
     e.onclick = event => {
+        if(event.target.tagName === 'IMG') return
         const src = event.target.dataset.src
         const iframe = document.querySelector('iframe')
         if(iframe.src !== src) iframe.src = src
