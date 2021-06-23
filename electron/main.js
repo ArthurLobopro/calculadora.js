@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require("electron")
+const { app, BrowserWindow, ipcMain } = require("electron")
 const path = require("path")
 
 require("./header-actions-main.js")
@@ -54,6 +54,12 @@ app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
         mainWindow()
     }
+})
+
+//ipcMain
+
+ipcMain.on('new-window', (event,arg) => {
+    createWindow(arg)
 })
 
 // Faz com que o programa não inicie várias vezes durante a instalação
