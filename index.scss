@@ -57,6 +57,7 @@ iframe{
             height: 30px;
             display: flex;
             align-items: center;
+            justify-content: space-between;
             margin: 0 2.5px 0 10px;
             padding: 0;
             font-size: 17px;
@@ -68,6 +69,10 @@ iframe{
             }
             &:hover{
                 background-color: #222;
+            }
+            & > img{
+                width: 20px;
+                height: 20px;
             }
         }
     }
