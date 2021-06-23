@@ -2,10 +2,12 @@ const { ipcRenderer } = require('electron')
 const make_header = require("./make-header.js")
 
 function init(){
+    const isMain = location.href.search('index.html') !== -1
+
     const get = id => document.getElementById(id)
     const css = document.createElement('link')
     css.rel = "stylesheet"
-    css.href = "header.css"
+    css.href = isMain ? "header.css" : "../header.css"
     document.head.appendChild(css)
 
     document.body.style.paddingTop = "30px"

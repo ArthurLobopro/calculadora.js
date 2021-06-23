@@ -1,6 +1,7 @@
 const make_header = () => {
+    const isMain = location.href.search('index.html') !== -1
 
-    const path = "assets/windowsIcons/"
+    const path = isMain ? "assets/windowsIcons/" : "../assets/windowsIcons/"
 
     const header = document.createElement('div')
 
