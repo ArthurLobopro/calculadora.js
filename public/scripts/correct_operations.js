@@ -32,14 +32,21 @@ function div(n1,n2){
 }
 
 function pow(n, exp = 2) {
-    let mult = 1
+    let multiplicador = 1
     let n_l = String(n).length - String(n).indexOf('.') - 1
-    mult = 10 ** n_l
+    multiplicador = 10 ** n_l
     let total = 1
-    for(let i =0;i<exp; i++){
-        total*= (n * mult)
+    if(exp >= 0){
+        for(let i =0;i<exp; i++){
+            total*= (n * multiplicador)
+        }
+        return total / multiplicador ** exp
+    }else{
+        for(let i = 0;i>exp; i--){
+            total = mult(total, div(n,multiplicador))
+        }
+        return total
     }
-    return total / mult ** exp
 }
 
 export { soma, sub, mult, div, pow }
