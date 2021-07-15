@@ -29,11 +29,7 @@ const keyFunctions = {
 
         if(text == "0") return
 
-        if(text.indexOf("-") == -1){
-            visorDown.innerText = `-${text}`
-        }else{
-            visorDown.innerText = text.replace("-","")
-        }
+        visorDown.innerText = Number(text) * -1
     },
     "1/x": () => {
         visorDown.innerText = div(1, Number(visorDown.innerText))
