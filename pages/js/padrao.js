@@ -1,11 +1,11 @@
 const get = id => document.getElementById(id)
 
-import keyFunctions from "../../public/scripts/key-functions.js"
+import { keyFunctions, verifyAndCalc } from "../../public/scripts/key-functions.js"
 import { calc } from "../../public/scripts/operations-functions.js"
 
 document.addEventListener("DOMContentLoaded",()=>{
     const body = document.body
-    const  visorDown = document.getElementById("down-visor")
+    const visorDown = document.getElementById("down-visor")
     const visorUp = get("up-visor")
     const operations = ["+","-","x","/","%","^"]
 
@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         }
 
         if(operations.indexOf(key) !== -1){
+            verifyAndCalc()
             visorUp.innerText == "" ?  keyFunctions.parse(key) : keyFunctions[key]()
         }
         

@@ -5,6 +5,12 @@ const get = id => document.getElementById(id)
 const visorDown = get("down-visor")
 const visorUp = get("up-visor")
 
+const verifyAndCalc = () => {
+    if(visorUp.innerText.length > 0){
+        calc()
+    }
+}
+
 const keyFunctions = {
     "Backspace": ()=> {
         const text = visorDown.innerText 
@@ -20,6 +26,7 @@ const keyFunctions = {
     },
 
     "*": () => {
+        verifyAndCalc()
         const event = new Event("keydown")
         event.key = "x"
         document.body.dispatchEvent(event)
@@ -51,4 +58,4 @@ const keyFunctions = {
         }
     }
 }
-export default keyFunctions
+export { keyFunctions,verifyAndCalc }
