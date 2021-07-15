@@ -9,7 +9,7 @@ const operations = {
     "-": (n1,n2) => correct.sub(n1,n2),
     "/": (n1,n2) => correct.div(n1,n2),
     "x": (n1,n2) => correct.mult(n1,n2),
-    "%": (n1,n2) => n2 * n1 / 100,
+    "%": (n1,n2) => correct.mult(n2, correct.div(n1, 100)),
     "^": (n1,n2) => correct.pow(n1,n2)
 }
 
