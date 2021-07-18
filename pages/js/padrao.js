@@ -9,8 +9,14 @@ document.addEventListener("DOMContentLoaded",()=>{
     const visorUp = get("up-visor")
     const operations = ["+","-","x","/","%","^"]
 
-    body.onkeydown = event => {
+    window.onkeydown = event => {
         const key = String(event.key)
+
+        console.log(key);
+
+        if(event.ctrlKey){
+            return keyFunctions[`Control+${key}`]?.()
+        }
 
         if(key == Number(key)){
             if(visorDown.innerText == "0"){
@@ -32,8 +38,6 @@ document.addEventListener("DOMContentLoaded",()=>{
             verifyAndCalc()
             visorUp.innerText == "" ?  keyFunctions.parse(key) : keyFunctions[key]()
         }
-        
-        console.log(key);
     }
 
     const buttons = document.querySelectorAll(".button")

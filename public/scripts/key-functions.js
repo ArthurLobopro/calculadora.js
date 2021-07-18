@@ -15,7 +15,7 @@ const keyFunctions = {
     "Backspace": ()=> {
         const text = visorDown.innerText 
         visorDown.innerText = text.substring(0,text.length - 1)
-        if(visorDown.innerText == "")
+        if(visorDown.innerText == "" || visorDown.innerText == "Indefinido")
             visorDown.innerText = "0"
     },
 
@@ -23,6 +23,18 @@ const keyFunctions = {
     "Escape": () => {
         visorDown.innerText = "0"
         visorUp.innerText = ""
+    },
+
+    "Control++":() => {
+        if(Number(visorDown.innerText) < 0){
+            visorDown.innerText = Number(visorDown.innerText) * -1
+        }
+    },
+
+    "Control+-":() => {
+        if(Number(visorDown.innerText) > 0){
+            visorDown.innerText = Number(visorDown.innerText) * -1
+        }
     },
 
     "*": () => {
