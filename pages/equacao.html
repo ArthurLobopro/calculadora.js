@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equação de Segundo Grau</title>
+    <title>Eq 2° Grau</title>
     <link rel="stylesheet" href="./css/equacao.css">
+    <link rel="icon" href="../assets/equacao-icon.png">
+    <script src="./js/equacao.js" type="module"></script>
 </head>
 
 <body>
@@ -27,11 +29,12 @@
                 </label>
 
                 <div class="flex">
-                    <button>Calcular</button>
+                    <button id="calc">Calcular</button>
                 </div>
             </div>
         </div>
-        <div id="result" class="flex">
+        <div id="result-wrapper">
+            <div id="result"></div>
         </div>
     </div>
 </body>
