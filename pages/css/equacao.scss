@@ -1,0 +1,111 @@
+@import url('../../public/css/modules/pages.css');
+@import url("../../public/fonts/css-import/RobotoSlab-Regular.css");
+
+$fundo: #1e1e1e;
+$componets-fundo: #000;
+$font: #eee;
+
+body{
+    color: $font;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+label{
+    margin: 0 5px;
+    display: inline-flex;
+    align-items: center;
+}
+
+input[type="number"]{
+    background: $fundo;
+    border: none;
+    border-bottom: 1px #fff solid;
+    width: 30px;
+    margin: -2px 5px 0;
+    appearance: textfield;
+    outline: 0;
+    color: $font;
+    &::-webkit-inner-spin-button {
+        display: none;
+    }
+    &:focus{
+        border-bottom-width: 2px;
+    }
+}
+
+#screen{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#formule{
+    font-family: "Roboto Slab";
+}
+
+#inputs{
+    margin: 20px auto;
+}
+
+.flex{
+    display: flex;
+}
+
+#result-wrapper{
+    overflow-y: auto;
+    margin: 5px 0;
+    height: 100%;
+}
+
+#result{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#result:empty{
+    visibility: hidden;
+}
+
+button{
+    background-color: $fundo;
+    color: $font;
+    padding: 2px 5px;
+    border: 1px solid $font;
+    border-radius: 3px;
+    font-size: 18px;
+    margin: 10px auto 0;
+    cursor: pointer;
+}
+
+.res{
+    border: 2px solid $font;
+    width: 100%;
+    padding: 3px;
+    margin: 10px 5px 0 0;
+    text-align: left;
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: auto max-content;
+}
+
+.res:first-child{
+    margin: 0 5px 0 0;
+}
+
+::-webkit-scrollbar{
+    width: 8px;
+    padding: 1px;
+}
+
+::-webkit-scrollbar-button{
+    display: none;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #fff;
+    border-radius: 5px;
+    min-height: 50px;
+}

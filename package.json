@@ -1,6 +1,6 @@
 {
   "name": "calculadora.js",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "description": "Calculadora Simples",
   "main": "electron/main.js",
   "scripts": {
@@ -25,7 +25,12 @@
   "config": {
     "forge": {
       "packagerConfig": {
-        "icon": "./build/icon.ico"
+        "icon": "./build/icon.ico",
+        "ignore": [
+          "\\.git",
+          "\\.scss",
+          "/build"
+        ]
       },
       "makers": [
         {
