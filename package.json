@@ -12,6 +12,7 @@
   "author": "Arthur Lobo",
   "license": "MIT",
   "dependencies": {
+    "electron-frame": "0.1.1-refactor",
     "electron-squirrel-startup": "^1.0.0"
   },
   "devDependencies": {
