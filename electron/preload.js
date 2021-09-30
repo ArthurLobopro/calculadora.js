@@ -1,4 +1,6 @@
 const { ipcRenderer } = require('electron')
+const { insertFrame } = require('electron-frame/renderer')
+
 document.addEventListener("DOMContentLoaded", ()=> {
     const isMain = location.href.search('index.html') !== -1
 
@@ -16,5 +18,5 @@ document.addEventListener("DOMContentLoaded", ()=> {
         document.body.style.padding = "5px"
     }
 
-    require("./header-actions-renderer.js")
+    insertFrame()
 })

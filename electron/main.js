@@ -1,7 +1,8 @@
 const { app, BrowserWindow, ipcMain } = require("electron")
 const path = require("path")
 
-require("./header-actions-main.js")
+const { mainWindowControlEvents } = require('electron-frame/main')
+mainWindowControlEvents.init()
 
 function mainWindow(){
     const win = new BrowserWindow({
@@ -64,5 +65,5 @@ ipcMain.on('new-window', (event,arg) => {
 
 // Faz com que o programa não inicie várias vezes durante a instalação
 if (require('electron-squirrel-startup')){
-    return app.quit();
+    app.quit();
 }
