@@ -12,7 +12,14 @@ buttons.forEach( e => {
 const menuExpand = document.querySelector('#container > #menu-expand')
 const menu = document.getElementById('menu')
 
+let isLock = false
+
 menuExpand.onclick = () => {
+    if(isLock){ return null }
+
+    isLock = true
+    setTimeout(() => isLock = false, 1000);
+
     const fundo = document.getElementById('fundo-invisivel')
     if(fundo.classList.contains('visible')){
         menu.classList.toggle('visible')
@@ -24,6 +31,7 @@ menuExpand.onclick = () => {
         fundo.classList.toggle('visible')
         setTimeout(() => {
             menu.classList.toggle('visible')
+            isLock = false
         }, 100)
         menu.onmouseenter = () => window.onclick = null
         menu.onmouseleave = () => {

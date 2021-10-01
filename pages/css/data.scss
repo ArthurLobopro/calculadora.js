@@ -2,6 +2,10 @@
 
 $font: #eee;
 
+#container{
+    grid-template-rows: repeat(3, max-content);
+}
+
 input[type="date"]::-webkit-calendar-picker-indicator {
     background-image: url('../../assets/calendar.svg');
     background-position: center;

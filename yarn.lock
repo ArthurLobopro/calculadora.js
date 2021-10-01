@@ -1060,10 +1060,10 @@ ecc-jsbn@~0.1.1:
     jsbn "~0.1.0"
     safer-buffer "^2.1.0"
 
-electron-frame@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/electron-frame/-/electron-frame-0.4.0.tgz#5db8a9cd7ac41547c5000db5844550c245d93ce7"
-  integrity sha512-mBN5v4jdJSFa2wqOr91F2qi1lWA8jj3FP6rW8WomQPG5nXT9c40XurZNwZRyQgVHeiUJXmylLgR1SZKnFLqh3A==
+electron-frame@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/electron-frame/-/electron-frame-0.4.1.tgz#e37fa727dc99a15bc3fa213739b822d08d5d878f"
+  integrity sha512-QqMhfcd8+PKOxlrgUKKhDSjXLuLHruMDK/UGVWb7PH6a9VaDg8qY3XDsvuykIu+eEoP5Clq1dG0wEID5Jkeo2w==
 
 electron-installer-common@^0.10.2:
   version "0.10.3"
