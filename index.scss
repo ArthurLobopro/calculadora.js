@@ -1,5 +1,7 @@
 //Variaveis
 
+@import url(./public/fonts/css-import/Nunito-Regular.css);
+
 $fundo: #1e1e1e;
 $componets-fundo: #000;
 
@@ -23,6 +25,7 @@ body{
 iframe{
     height: 100%;
     display: block;
+    user-select: none;
 }
 
 #container{
@@ -64,6 +67,7 @@ iframe{
             border: solid #ddd;
             border-width: 1px 0 0 0;
             cursor: pointer;
+            white-space: nowrap;
             &:last-child{
                 border-width: 1px 0;
             }
