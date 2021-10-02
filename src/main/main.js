@@ -4,6 +4,9 @@ const path = require("path")
 const { mainWindowControlEvents } = require('electron-frame/main')
 mainWindowControlEvents.init()
 
+const appPath = app.getAppPath()
+const calculatorsFolder = path.resolve(__dirname, '../calculators')
+
 function mainWindow(){
     const win = new BrowserWindow({
         frame: false,
@@ -13,10 +16,10 @@ function mainWindow(){
         minHeight: 485,
         resizable: false,
         maximizable: false,
-        icon: path.join(__dirname,"../assets/icon.png"),
+        icon: path.resolve(appPath,"assets/icon.png"),
         webPreferences:{
             nodeIntegration: true,
-            preload: path.join(__dirname, "preload.js")
+            preload: path.resolve(__dirname, "preload.js")
         }
     })
     //win.setMenu(null)
@@ -33,14 +36,14 @@ function createWindow(href){
         minHeight: 465,
         resizable: false,
         maximizable: false,
-        icon: path.join(__dirname,"../assets/icon.png"),
+        icon: path.resolve(appPath,"assets/icon.png"),
         webPreferences:{
             nodeIntegration: true,
             preload: path.join(__dirname, "preload.js")
         }
     })
     win.setMenuBarVisibility(false)
-    win.loadFile(path.join(__dirname ,'../', href))
+    win.loadFile(path.resolve(calculatorsFolder, href))
 }
 
 app.whenReady().then(mainWindow)

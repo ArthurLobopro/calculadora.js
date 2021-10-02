@@ -2,7 +2,7 @@
   "name": "calculadora.js",
   "version": "1.4.1",
   "description": "Calculadora Simples",
-  "main": "electron/main.js",
+  "main": "src/main/main.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",

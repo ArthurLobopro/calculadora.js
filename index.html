@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="index.css">
     <link rel="shortcut icon" href="./assets/icon.png">
     <title>Calculadora.js</title>
-    <script src="index.js" type="module"></script>
+    <script src="src/renderer/renderer.js" type="module"></script>
 </head>
 <body>
     <div id="container">
@@ -14,26 +14,26 @@
         <div id="fundo-invisivel">
             <div id="menu">
                 <ul>
-                    <li data-src="./pages/padrao.html">
+                    <li data-src="./src/calculators/padrao.html">
                         Padrão
-                        <img src="assets/hyperlink.png" data-href="./pages/padrao.html">
+                        <img src="assets/hyperlink.png" data-href="padrao.html">
                     </li>
-                    <li data-src="./pages/bases.html">
+                    <li data-src="./src/calculators/bases.html">
                         Bases
-                        <img src="assets/hyperlink.png" data-href="./pages/bases.html">
+                        <img src="assets/hyperlink.png" data-href="bases.html">
                     </li>
-                    <li data-src="./pages/equacao.html">
+                    <li data-src="./src/calculators/equacao.html">
                         Eq. 2º Grau
-                        <img src="assets/hyperlink.png" data-href="./pages/equacao.html">
+                        <img src="assets/hyperlink.png" data-href="equacao.html">
                     </li>
-                    <li data-src="./pages/data.html">
+                    <li data-src="./src/calculators/data.html">
                         Data
-                        <img src="assets/hyperlink.png" data-href="./pages/data.html">
+                        <img src="assets/hyperlink.png" data-href="data.html">
                     </li>
                 </ul>
             </div>
         </div>
-        <iframe src="./pages/padrao.html" width="100%" height="100%" frameborder="0"></iframe>
+        <iframe src="./src/calculators/padrao.html" width="100%" height="100%" frameborder="0"></iframe>
     </div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-@import url('../../public/css/modules/pages.css');
+@import url('../../../public/css/modules/pages.css');
 
 $font: #eee;
 
@@ -7,7 +7,7 @@ $font: #eee;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
-    background-image: url('../../assets/calendar.svg');
+    background-image: url('../../../assets/calendar.svg');
     background-position: center;
     width: 14px;
     height: 18px;

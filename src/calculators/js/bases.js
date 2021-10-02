@@ -1,4 +1,4 @@
-import * as convert from "../../public/scripts/bases.js"
+import * as convert from "../../lib/bases.js"
 
 const digitos = {
     bin: ["0","1"],
