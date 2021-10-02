@@ -54,8 +54,8 @@ const mainKeyDown = event => {
 window.onkeydown =  mainKeyDown
 
 const clickButtons = event => {
-    const key = event.target.dataset.value
-    return mainKeyDown({key})
+    const key = event.currentTarget.dataset.value
+    return mainKeyDown({ key })
 }
 
 const buttons = document.querySelectorAll('.button')
@@ -78,6 +78,12 @@ bases_select.onchange = () => {
             b.classList.add('disable')
         }
     })
-    document.querySelector('[data-value="Backspace"]').classList.remove('disable')
+
+    buttons.forEach( button => {
+        if(!digitos.hex.includes(button.dataset.value)){
+            button.classList.remove('disable')
+        }
+    })
+
     calc()
 }
