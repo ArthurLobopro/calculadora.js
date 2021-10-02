@@ -1,6 +1,6 @@
 {
   "name": "calculadora.js",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Calculadora Simples",
   "main": "src/main/main.js",
   "scripts": {
