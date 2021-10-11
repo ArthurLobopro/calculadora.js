@@ -15,6 +15,14 @@ const verifyAndCalc = () => {
 
 const keyFunctions = {
     "Backspace": ()=> {
+
+        const upText = visorUp.innerText.replaceAll(' ', '')
+        if(upText !== ""){
+            visorDown.innerText = upText.substring(0,upText.length - 1)
+            visorUp.innerText = ''
+            return 
+        }
+
         const text = visorDown.innerText 
         visorDown.innerText = text.substring(0,text.length - 1)
         if(visorDown.innerText == "" || visorDown.innerText == "Indefinido")
