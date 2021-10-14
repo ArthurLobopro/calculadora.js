@@ -1,8 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require("electron")
 const path = require("path")
 
-const { mainWindowControlEvents } = require('electron-frame/main')
-mainWindowControlEvents.init()
+require('electron-frame/main')
 
 const appPath = app.getAppPath()
 const calculatorsFolder = path.resolve(__dirname, '../calculators')
