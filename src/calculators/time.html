@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time</title>
+
+    <link rel="stylesheet" href="./css/time.css">
+</head>
+
+<body>
+
+    <div id="container">
+
+        <div id="from">
+            <input type="number" min="0" id="from-input">
+            <select id="from-type" list="types">
+                <option value="ms">Milisegundos</option>
+                <option value="s">Segundos</option>
+                <option value="m" selected>Minutos</option>
+                <option value="h">Horas</option>
+                <option value="d">Dias</option>
+            </select>
+        </div>
+
+
+        <div id="to">
+            <input type="number" min="0" id="to-input">
+            <select id="to-type">
+                <option value="ms">Milisegundos</option>
+                <option value="s">Segundos</option>
+                <option value="m" selected>Minutos</option>
+                <option value="h">Horas</option>
+                <option value="d">Dias</option>
+            </select>
+        </div>
+    </div>
+
+</body>
+
+</html>
