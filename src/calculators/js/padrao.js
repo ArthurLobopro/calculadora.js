@@ -74,9 +74,8 @@ const keyFunctions = {
 
     "*": () => {
         verifyAndCalc()
-        const event = new Event("keydown")
-        event.key = "x"
-        document.body.dispatchEvent(event)
+        const multButton = document.querySelector('[data-value="x"]')
+        multButton.click()
     },
     "-or+": () => {
         const text = visorDown.innerText
