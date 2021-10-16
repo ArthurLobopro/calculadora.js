@@ -20,5 +20,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
         document.body.style.padding = "5px"
     }
 
-    insertFrame()
+    if(process.isMainFrame){
+        insertFrame()
+    }    
 })
