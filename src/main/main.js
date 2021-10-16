@@ -18,7 +18,8 @@ function mainWindow(){
         icon: path.resolve(appPath,"assets/icon.png"),
         webPreferences:{
             nodeIntegration: true,
-            preload: path.resolve(__dirname, "preload.js")
+            preload: path.resolve(__dirname, "preload.js"),
+            nodeIntegrationInSubFrames: true
         }
     })
     //win.setMenu(null)
