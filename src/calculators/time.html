@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Time</title>
+    <title>Tempo</title>
 
     <link rel="stylesheet" href="./css/time.css">
+    <script src="js/time.js" type="module"></script>
 </head>
 
 <body>
@@ -15,25 +16,25 @@
     <div id="container">
 
         <div id="from">
-            <input type="number" min="0" id="from-input">
+            <input type="number" min="0" id="from-input" value="0">
             <select id="from-type" list="types">
-                <option value="ms">Milisegundos</option>
-                <option value="s">Segundos</option>
-                <option value="m" selected>Minutos</option>
-                <option value="h">Horas</option>
-                <option value="d">Dias</option>
+                <option value="milisseconds">Milisegundos</option>
+                <option value="seconds">Segundos</option>
+                <option value="minutes" selected>Minutos</option>
+                <option value="hours">Horas</option>
+                <option value="days">Dias</option>
             </select>
         </div>
 
 
         <div id="to">
-            <input type="number" min="0" id="to-input">
+            <input type="number" min="0" id="to-input" value="0">
             <select id="to-type">
-                <option value="ms">Milisegundos</option>
-                <option value="s">Segundos</option>
-                <option value="m" selected>Minutos</option>
-                <option value="h">Horas</option>
-                <option value="d">Dias</option>
+                <option value="milisseconds">Milisegundos</option>
+                <option value="seconds">Segundos</option>
+                <option value="minutes" selected>Minutos</option>
+                <option value="hours">Horas</option>
+                <option value="days">Dias</option>
             </select>
         </div>
     </div>
