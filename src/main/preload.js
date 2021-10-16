@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
 
             }
         })
-    }else{
+    }else if(process.isMainFrame){
         document.body.style.padding = "5px"
     }
 
