@@ -1,5 +1,7 @@
-const { ipcRenderer } = require('electron')
+const { ipcRenderer, contextBridge } = require('electron')
 const { insertFrame } = require('electron-frame/renderer')
+
+contextBridge.exposeInMainWorld('require', require)
 
 document.addEventListener("DOMContentLoaded", ()=> {
     const isMain = location.href.search('index.html') !== -1
