@@ -37,3 +37,28 @@ input{
         font-weight: 600;
     }
 }
+
+#keyboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 6px;
+}
+
+.double-button {
+    grid-column: 1/ span 2;
+    width: 100%;
+    height: 100%;
+    min-height: 30px;
+    display: grid;
+    place-items: center;
+    background-color: $componets-fundo;
+    color: #fff;
+    user-select: none;
+    border-radius: 5px;
+    &:hover{
+        background-color: #111;
+    }
+    &.disable{
+        background-color: #404040;
+    }
+}
