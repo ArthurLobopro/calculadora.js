@@ -1,4 +1,5 @@
 const iframe = document.querySelector('iframe')
+const nameDiv = document.getElementById('calculator-name')
 
 const buttons = document.querySelectorAll('ul > li')
 buttons.forEach( e => {
@@ -9,6 +10,9 @@ buttons.forEach( e => {
         if(iframe.src !== src) iframe.src = src
         document.getElementById('menu-expand').click()
         iframe.focus()
+        
+        nameDiv.innerText = String(event.target.textContent).trim()
+        
     }
 })
 
