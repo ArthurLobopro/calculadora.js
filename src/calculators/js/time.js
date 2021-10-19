@@ -49,3 +49,54 @@ function convert(selectChange = false) {
 
     blurInput.value = Number.isInteger(toValue) ? format(toValue) : format(Number(toValue.toFixed(6)))
 }
+
+const getFocusedInput = () => document.querySelector('.focus') || fromInput
+const dispatchInput = () => {
+    const input = getFocusedInput()
+    const event = new Event("input")
+    input.dispatchEvent(event)
+}
+
+const buttonsFunctions = {
+    "Backspace": () => {
+        const input = getFocusedInput()
+        const value = input.value
+        input.value = String(value).substring(0, value.length - 1)
+        dispatchInput()
+    },
+    "CE": () => {
+        const input = getFocusedInput()
+        input.value = "0"
+        dispatchInput()
+    },
+    "invert": () => {
+        const value = toInput.value
+        const fromValue = fromSelect.value
+        const toValue = toSelect.value
+
+        fromInput.value = value
+        fromSelect.value = toValue
+        toSelect.value = fromValue
+
+        convert(true)
+    }
+}
+
+const onButtonClick = event => {
+    const target = event.currentTarget
+    const value = target.dataset.value
+
+    buttonsFunctions[value]?.()
+
+    const input = getFocusedInput()
+
+    if("0123456789".indexOf(value) >= 0 || value == ',' && !input.value.includes(',')){
+        input.value += value
+        dispatchInput()
+    }
+}
+
+document.querySelectorAll('.button').forEach(button => button.onclick = onButtonClick)
+
+fromInput.focus()
+fromInput.click()
