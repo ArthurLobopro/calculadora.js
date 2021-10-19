@@ -14,15 +14,28 @@ const onInput = event => {
     convert()
 }
 
-const onkeypress = e => {
-    return "0123456789".indexOf(e.key) >= 0 || event.key == ',' && !e.target.value.includes(',')
+const onKeyDown = e => {
+    return e.key=="Backspace" || "0123456789".indexOf(e.key) >= 0 || event.key == ',' && !e.target.value.includes(',')
 }
 
-fromInput.onkeypress = onkeypress
-toInput.onkeypress = onkeypress
+const onClick = event => {
+    const target = event.target
+
+        ;[fromInput, toInput].forEach(input => input.classList.remove('focus'))
+    target.classList.add('focus')
+}
+
+fromInput.onkeydown = onKeyDown
+toInput.onkeydown = onKeyDown
 
 fromInput.oninput = onInput
 toInput.oninput = onInput
+
+fromInput.onchange = onInput
+toInput.onchange = onInput
+
+fromInput.onclick = onClick
+toInput.onclick = onClick
 
 const onChange = () => convert(true)
 
@@ -35,11 +48,16 @@ toSelect.onchange = onChange
 const format = str => String(str).replace('.', ',')
 
 function convert(selectChange = false) {
-    const focusedInput = selectChange ? fromInput : document.querySelector('input:focus')
-    const blurInput = selectChange ? toInput : document.querySelector('input:not(:focus)')
+    const focusedInput = selectChange ? fromInput : document.querySelector('input:focus') || document.querySelector('input.focus')
+    const blurInput = selectChange ? toInput : document.querySelector('input:not(:focus):not(.focus)')
 
-    const fromSelect = selectChange ? document.getElementById("from-type") : document.querySelector("input:focus + select")
-    const toSelect = selectChange ? document.getElementById("to-type") : document.querySelector("input:not(:focus) + select")
+    const fromSelect = selectChange ?
+        document.getElementById("from-type") :
+        document.querySelector("input:focus + select") || document.querySelector('input.focus + select')
+
+    const toSelect = selectChange ?
+        document.getElementById("to-type") :
+        document.querySelector("input:not(:focus):not(.focus) + select")
 
     const fromType = fromSelect.value
     const toType = toSelect.value
