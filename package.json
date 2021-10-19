@@ -1,6 +1,6 @@
 {
   "name": "calculadora.js",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Calculadora Simples",
   "main": "src/main/main.js",
   "scripts": {
@@ -13,7 +13,8 @@
   "license": "MIT",
   "dependencies": {
     "electron-frame": "^0.6.0",
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "time-converter": "https://github.com/ArthurLobopro/time-converter"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.54",

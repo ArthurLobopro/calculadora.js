@@ -102,6 +102,12 @@ const keyFunctions = {
         if (visorDown.innerText !== "" && visorUp.innerText !== "") {
             calc()
         }
+    },
+
+    ",":() => {
+        if(!visorDown.innerText.includes(',')){
+            visorDown.innerText += ','
+        }
     }
 }
 
@@ -123,10 +129,6 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 visorDown.innerText += key
             }
-        }
-
-        if (key == ",") {
-            visorDown.innerText += key
         }
 
         if (keyFunctions[key] && operations.indexOf(key) === -1) {

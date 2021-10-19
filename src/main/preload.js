@@ -1,5 +1,7 @@
-const { ipcRenderer } = require('electron')
+const { ipcRenderer, contextBridge } = require('electron')
 const { insertFrame } = require('electron-frame/renderer')
+
+contextBridge.exposeInMainWorld('require', require)
 
 document.addEventListener("DOMContentLoaded", ()=> {
     const isMain = location.href.search('index.html') !== -1
@@ -14,9 +16,11 @@ document.addEventListener("DOMContentLoaded", ()=> {
 
             }
         })
-    }else{
+    }else if(process.isMainFrame){
         document.body.style.padding = "5px"
     }
 
-    insertFrame()
+    if(process.isMainFrame){
+        insertFrame()
+    }    
 })
