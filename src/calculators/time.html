@@ -17,7 +17,7 @@
     <div id="container">
 
         <div id="from">
-            <input type="text" min="0" id="from-input" value="0">
+            <input type="text" min="0" id="from-input" maxlength="15" value="0" autofocus>
             <select id="from-type" list="types">
                 <option value="milisseconds">Milisegundos</option>
                 <option value="seconds">Segundos</option>
@@ -29,7 +29,7 @@
 
 
         <div id="to">
-            <input type="text" min="0" id="to-input" value="0">
+            <input type="text" min="0" id="to-input" maxlength="15" value="0">
             <select id="to-type">
                 <option value="milisseconds">Milisegundos</option>
                 <option value="seconds">Segundos</option>
@@ -37,6 +37,32 @@
                 <option value="hours">Horas</option>
                 <option value="days">Dias</option>
             </select>
+        </div>
+
+        <div id="keyboard">
+
+            <div class="button" data-value="invert">
+                <img src="../../assets/buttons/revert.svg" width="25px" alt="Inverter">
+            </div>
+            <div class="button" data-value="CE">CE</div>
+            <div class="button" data-value="Backspace">
+                <img src="../../assets/buttons/delete.png" alt="Apagar">
+            </div>
+
+            <div class="button" data-value="7">7</div>
+            <div class="button" data-value="8">8</div>
+            <div class="button" data-value="9">9</div>
+
+            <div class="button" data-value="4">4</div>
+            <div class="button" data-value="5">5</div>
+            <div class="button" data-value="6">6</div>
+
+            <div class="button" data-value="1">1</div>
+            <div class="button" data-value="2">2</div>
+            <div class="button" data-value="3">3</div>
+
+            <div class="double-button" data-value="0">0</div>
+            <div class="button" data-value=",">,</div>
         </div>
     </div>
 
