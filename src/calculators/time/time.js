@@ -15,7 +15,7 @@ const onInput = event => {
 }
 
 const onKeyDown = e => {
-    return e.key=="Backspace" || "0123456789".indexOf(e.key) >= 0 || event.key == ',' && !e.target.value.includes(',')
+    return e.key=="Backspace" || "0123456789".indexOf(e.key) >= 0 || e.key == ',' && !e.target.value.includes(',')
 }
 
 const onClick = event => {

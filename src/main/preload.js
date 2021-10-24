@@ -1,7 +1,13 @@
 const { ipcRenderer, contextBridge } = require('electron')
 const { insertFrame } = require('electron-frame/renderer')
 
+const getArgValue = arg => {
+    const argString = process.argv.find( argvArg => argvArg.includes(arg))
+    return argString.split("=")[1]
+}
+
 contextBridge.exposeInMainWorld('require', require)
+contextBridge.exposeInMainWorld('appPath', getArgValue("--app-path"))
 
 document.addEventListener("DOMContentLoaded", ()=> {
     const isMain = location.href.search('index.html') !== -1

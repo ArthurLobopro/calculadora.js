@@ -82,10 +82,17 @@ iframe{
     }
 }
 
-#menu-expand{
+#menu-expand, #calculator-name{
     z-index: 3;
     position: absolute;
     top: 30px;
+}
+
+#calculator-name{
+    left: 40px;
+    font-family: "Nunito";
+    color: #eee;
+    font-size: 19px;
 }
 
 #menu.visible{

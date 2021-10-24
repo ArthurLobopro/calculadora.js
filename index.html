@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,36 +9,41 @@
     <title>Calculadora.js</title>
     <script src="src/renderer/renderer.js" type="module"></script>
 </head>
+
 <body>
     <div id="container">
+
         <img src="./assets/menu.png" width="25px" id="menu-expand">
+        <span id="calculator-name">Padrão</span>
+
         <div id="fundo-invisivel">
             <div id="menu">
                 <ul>
-                    <li data-src="./src/calculators/padrao.html">
+                    <li data-src="./src/calculators/padrao/padrao.html">
                         Padrão
-                        <img src="assets/hyperlink.png" data-href="padrao.html">
+                        <img src="assets/hyperlink.png" data-href="padrao/padrao.html">
                     </li>
-                    <li data-src="./src/calculators/bases.html">
+                    <li data-src="./src/calculators/bases/bases.html">
                         Bases
-                        <img src="assets/hyperlink.png" data-href="bases.html">
+                        <img src="assets/hyperlink.png" data-href="bases/bases.html">
                     </li>
-                    <li data-src="./src/calculators/equacao.html">
+                    <li data-src="./src/calculators/equacao/equacao.html">
                         Eq. 2º Grau
-                        <img src="assets/hyperlink.png" data-href="equacao.html">
+                        <img src="assets/hyperlink.png" data-href="equacao/equacao.html">
                     </li>
-                    <li data-src="./src/calculators/data.html">
+                    <li data-src="./src/calculators/data/data.html">
                         Data
-                        <img src="assets/hyperlink.png" data-href="data.html">
+                        <img src="assets/hyperlink.png" data-href="data/data.html">
                     </li>
-                    <li data-src="./src/calculators/time.html">
+                    <li data-src="./src/calculators/time/time.html">
                         Tempo
-                        <img src="assets/hyperlink.png" data-href="time.html">
+                        <img src="assets/hyperlink.png" data-href="time/time.html">
                     </li>
                 </ul>
             </div>
         </div>
-        <iframe src="./src/calculators/padrao.html" width="100%" height="100%" frameborder="0"></iframe>
+        <iframe src="./src/calculators/padrao/padrao.html" width="100%" height="100%" frameborder="0"></iframe>
     </div>
 </body>
+
 </html>
