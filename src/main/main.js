@@ -114,6 +114,10 @@ app.whenReady().then(
     }
 )
 
+ipcMain.on('request-app-path', (event) => {
+    event.returnValue = appPath
+})
+
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
         app.quit()
