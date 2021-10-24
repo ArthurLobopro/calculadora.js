@@ -1,28 +1,32 @@
+import { loadSVG, appPath } from "../../lib/Util.js"
 const resultDiv = document.getElementById('result')
 
-const circle = `
-<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <style>
-        svg:hover * {
-            stroke: #ccc;
-        }
-        svg:active * {
-            stroke: #aaa;
-        }
-        svg{
-            cursor: pointer;
-        }
-    </style>
-
-    <circle cx="10" cy="10" r="9" stroke="white" stroke-width="2" />
-    <path d="M6 6L14 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-    <path d="M14 6L6 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-
-</svg>`
+const circle = loadSVG(appPath, "assets", "circle-x.svg")
 
 const a_input = document.getElementById("A")
 const b_input = document.getElementById("B")
 const c_input = document.getElementById("C")
+
+const validadeKey = e => {
+    return e.key == "Backspace" || "-0123456789".indexOf(e.key) >= 0 || e.key == ',' && !e.target.value.includes(',')
+}
+
+const arrows = event => {
+    const elements = [a_input, b_input, c_input]
+    const target = event.target
+    const index = elements.indexOf(target)
+    const key = event.key
+    if (index != elements.length - 1 && ["ArrowRight", "Enter"].includes(key)) {
+        elements[index + 1].focus()
+    }
+    if (index > 0 && key === "ArrowLeft") {
+        elements[index - 1].focus()
+    }
+}
+
+const onkeydown = event => { arrows(event); validadeKey(event) }
+
+[a_input, b_input, c_input].forEach(input => input.onkeydown = onkeydown)
 
 function buildRes({ a, b, c, x = [], delta, root }) {
     const res = document.createElement("div")
@@ -58,7 +62,7 @@ function getInputValues() {
     }
 }
 
-function clearInputValues(){
+function clearInputValues() {
     a_input.value = ''
     b_input.value = ''
     c_input.value = ''
