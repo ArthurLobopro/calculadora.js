@@ -94,18 +94,3 @@ button{
 .res:first-child{
     margin: 0 5px 0 0;
 }
-
-::-webkit-scrollbar{
-    width: 8px;
-    padding: 1px;
-}
-
-::-webkit-scrollbar-button{
-    display: none;
-}
-
-::-webkit-scrollbar-thumb{
-    background-color: #fff;
-    border-radius: 5px;
-    min-height: 50px;
-}

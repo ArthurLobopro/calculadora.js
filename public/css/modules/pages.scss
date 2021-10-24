@@ -47,3 +47,18 @@ body{
         background-color: #404040;
     }
 }
+
+::-webkit-scrollbar{
+    width: 8px;
+    padding: 1px;
+}
+
+::-webkit-scrollbar-button{
+    display: none;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #fff;
+    border-radius: 5px;
+    min-height: 50px;
+}

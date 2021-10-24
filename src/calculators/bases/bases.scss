@@ -37,6 +37,9 @@ $componets-fundo: #000;
     grid-template-columns: auto;
     grid-template-rows: max-content max-content;
     border-radius: 5px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 135px;
     & #input{
         display: flex;
         justify-content: flex-end;
@@ -47,8 +50,14 @@ $componets-fundo: #000;
         border-bottom: 1px solid #ccc;
     }
     & > div > div{
-        display: flex;
+        display: grid;
         justify-content: space-between;
+        grid-template-columns: max-content auto;
+        word-wrap: break-word;
+        word-break: break-all;
+        & > span{
+            margin-left: 5px;
+        }
     }
 }
 
