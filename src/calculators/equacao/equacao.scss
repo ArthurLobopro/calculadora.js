@@ -27,11 +27,13 @@ input[type="number"]{
     appearance: textfield;
     outline: 0;
     color: $font;
+    caret-color: transparent !important;
     &::-webkit-inner-spin-button {
         display: none;
     }
     &:focus{
         border-bottom-width: 2px;
+        font-weight: bold;
     }
 }
 
@@ -63,10 +65,9 @@ input[type="number"]{
 #result{
     display: flex;
     flex-wrap: wrap;
-}
-
-#result:empty{
-    visibility: hidden;
+    &:empty{
+        visibility: hidden;
+    }
 }
 
 button{
