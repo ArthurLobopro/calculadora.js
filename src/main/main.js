@@ -118,6 +118,13 @@ ipcMain.on('request-app-path', (event) => {
     event.returnValue = appPath
 })
 
+ipcMain.on('toggle-alwaysOnTop', (event) => {
+    const win = BrowserWindow.getFocusedWindow()
+    const isAlwaysOnTop = win.isAlwaysOnTop()
+    win.setAlwaysOnTop(!isAlwaysOnTop)
+    event.returnValue = !isAlwaysOnTop
+})
+
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
         app.quit()
