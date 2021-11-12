@@ -16,7 +16,7 @@ buttons.forEach( e => {
     }
 })
 
-const menuExpand = document.querySelector('#container > #menu-expand')
+const menuExpand = document.querySelector('#container #menu-expand')
 const menu = document.getElementById('menu')
 
 let isLock = false
@@ -49,6 +49,15 @@ menuExpand.onclick = () => {
         }
     }
 }
+
+const toggleAlwaysOnTop_button = document.getElementById("toggleAlwaysOnTop")
+const toggleAlwaysOnTop_image = toggleAlwaysOnTop_button.querySelector("img")
+const toggleAlwaysOnTop = () => {
+    const isAlwaysOnTop = ipcRenderer.sendSync("toggle-alwaysOnTop")
+    toggleAlwaysOnTop_image.src = `./assets/alwaysOnTop-${isAlwaysOnTop}.svg`
+}
+
+toggleAlwaysOnTop_button.onclick = toggleAlwaysOnTop
 
 window.onresize = () => {
     const container = document.getElementById('container')
