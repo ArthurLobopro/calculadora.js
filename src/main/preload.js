@@ -8,6 +8,7 @@ const getArgValue = arg => {
 
 contextBridge.exposeInMainWorld('require', require)
 contextBridge.exposeInMainWorld('appPath', getArgValue("--app-path"))
+contextBridge.exposeInMainWorld('ipcRenderer', ipcRenderer)
 
 document.addEventListener("DOMContentLoaded", ()=> {
     const isMain = location.href.search('index.html') !== -1
