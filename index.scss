@@ -98,12 +98,28 @@ header {
     & #menu-expand {
         position: relative;
         z-index: 5;
+        height: 30px;
+        padding: 2.5px 3px;
+        & > img{
+            width: 25px;
+        }
+        &:hover{
+            // background-color: #505050;
+            background-color: #ffffff26
+        }
     }
     & #calculator-name{
         font-family: "Nunito";
         color: #eee;
         font-size: 19px;
         margin: 0 5px;
+    }
+    & #toggleAlwaysOnTop{
+        padding: 0 5px;
+        &:hover{
+            // background-color: #505050;
+            background-color: #ffffff26
+        }
     }
 }
 
