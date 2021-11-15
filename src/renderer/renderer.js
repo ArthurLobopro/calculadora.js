@@ -55,6 +55,7 @@ const toggleAlwaysOnTop_image = toggleAlwaysOnTop_button.querySelector("img")
 const toggleAlwaysOnTop = () => {
     const isAlwaysOnTop = ipcRenderer.sendSync("toggle-alwaysOnTop")
     toggleAlwaysOnTop_image.src = `./assets/alwaysOnTop-${isAlwaysOnTop}.svg`
+    toggleAlwaysOnTop_button.title = !isAlwaysOnTop ? "Fixar janela no topo." : "Desfixar janela do topo."
 }
 
 toggleAlwaysOnTop_button.onclick = toggleAlwaysOnTop
