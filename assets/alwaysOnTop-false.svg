@@ -1,0 +1,10 @@
+<svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line y1="0.5" x2="20" y2="0.5" stroke="white" />
+    <line x1="0.5" y1="1" x2="0.5" y2="7" stroke="white" />
+    <line x1="19.5" x2="19.5" y2="16" stroke="white" />
+    <line x1="9" y1="15.5" x2="19" y2="15.5" stroke="white" />
+    <rect x="9.5" y="0.5" width="10" height="7" stroke="white" />
+    <line x1="0.737831" y1="15.587" x2="6.36082" y2="9.55709" stroke="white" />
+    <line x1="1.85351" y1="9.35351" x2="6.12104" y2="9.35351" stroke="white" />
+    <path d="M6.54779 9V14.121" stroke="white" />
+</svg>
