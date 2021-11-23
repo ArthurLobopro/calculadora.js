@@ -15,6 +15,7 @@ function mainWindow() {
         minHeight: 490,
         resizable: false,
         maximizable: false,
+        fullscreenable: false,
         icon: path.resolve(appPath, "assets/icon.png"),
         webPreferences: {
             nodeIntegration: true,
@@ -35,6 +36,7 @@ function createWindow(href) {
         minHeight: 465,
         resizable: false,
         maximizable: false,
+        fullscreenable: false,
         icon: path.resolve(appPath, "assets/icon.png"),
         webPreferences: {
             nodeIntegration: true,
