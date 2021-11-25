@@ -58,7 +58,7 @@ const clickButtons = event => {
     return mainKeyDown({ key })
 }
 
-const buttons = document.querySelectorAll('.button')
+const buttons = document.querySelectorAll('button')
 buttons.forEach( e => e.onclick = clickButtons)
 
 const bases_select = get("bases")
