@@ -8,7 +8,7 @@ const visorDown = get("down-visor")
 const visorUp = get("up-visor")
 
 const verifyAndCalc = () => {
-    if (visorUp.innerText.length > 0) {
+    if (visorUp.innerText.length > 0 && visorDown.innerText.length > 0) {
         calc()
     }
 }
@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (operations.indexOf(key) !== -1) {
                 visorUp.innerText == "" ? keyFunctions.parse(key) : keyFunctions[key]()
             } else if (key === "=") {
-                calc()
+                verifyAndCalc()
             } else {
                 if (key == Number(key)) {
                     if (visorDown.innerText == "0") {
