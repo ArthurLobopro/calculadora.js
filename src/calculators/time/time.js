@@ -114,7 +114,7 @@ const onButtonClick = event => {
     }
 }
 
-document.querySelectorAll('.button').forEach(button => button.onclick = onButtonClick)
+document.querySelectorAll('button').forEach(button => button.onclick = onButtonClick)
 
 fromInput.focus()
 fromInput.click()
