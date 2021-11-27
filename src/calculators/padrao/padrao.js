@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    const buttons = document.querySelectorAll(".button")
+    const buttons = document.querySelectorAll("button")
     for (let e of buttons) {
         e.onclick = event => {
             const key = event.currentTarget.dataset.value
