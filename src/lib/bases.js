@@ -51,7 +51,7 @@ const oct_to_hex = oct => dec_to_hex(oct_to_dec(oct))
 const hex_to_bin = hex => dec_to_bin(hex_to_dec(hex))
 const hex_to_oct = hex => dec_to_oct(hex_to_dec(hex))
 
-export {
+module.exports = {
     dec_to, to_dec, // *Pode ser usada em qualquer base que use apenas números (minimo binário, max decimal)
     dec_to_bin, dec_to_oct, dec_to_hex, //Conversões decimal => base
     bin_to_dec, oct_to_dec, hex_to_dec, // Conversões base => decimal

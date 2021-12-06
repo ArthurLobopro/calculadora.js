@@ -1,4 +1,4 @@
-import * as convert from "../../lib/bases.js"
+const convert = require('lib/bases.js')
 
 const digitos = {
     bin: ["0","1"],
