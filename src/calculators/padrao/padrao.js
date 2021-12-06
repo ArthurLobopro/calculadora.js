@@ -1,6 +1,6 @@
 const get = id => document.getElementById(id)
 
-import { calc, parceTop } from "../../lib/operations-functions.js"
+import { calc, parceTop } from "./operations-functions.js"
 
 import { div } from "../../lib/correct_operations.js"
 
