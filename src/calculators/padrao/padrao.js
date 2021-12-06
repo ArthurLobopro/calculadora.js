@@ -2,7 +2,7 @@ const get = id => document.getElementById(id)
 
 import { calc, parceTop } from "./operations-functions.js"
 
-import { div } from "../../lib/correct_operations.js"
+const { div } = require("lib/correct_operations")
 
 const visorDown = get("down-visor")
 const visorUp = get("up-visor")

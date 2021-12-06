@@ -1,4 +1,4 @@
-import * as correct from "../../lib/correct_operations.js";
+const correct = require("lib/correct_operations")
 const get = id => document.getElementById(id)
 const  visorDown = get("down-visor")
 const visorUp = get("up-visor")
