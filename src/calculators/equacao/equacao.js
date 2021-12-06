@@ -1,6 +1,8 @@
-import { loadSVG, appPath } from "../../lib/Util.js"
-const resultDiv = document.getElementById('result')
+const { loadSVG } = require("lib/Util")
 
+const appPath = window.appPath
+
+const resultDiv = document.getElementById('result')
 const circle = loadSVG(appPath, "assets", "circle-x.svg")
 
 const a_input = document.getElementById("A")
