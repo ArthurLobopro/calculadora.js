@@ -15,7 +15,7 @@ const onInput = event => {
 }
 
 const onKeyDown = e => {
-    return e.key=="Backspace" || "0123456789".indexOf(e.key) >= 0 || e.key == ',' && !e.target.value.includes(',')
+    return e.key == "Backspace" || "0123456789".indexOf(e.key) >= 0 || e.key == ',' && !e.target.value.includes(',')
 }
 
 const onClick = event => {
@@ -48,8 +48,13 @@ toSelect.onchange = onChange
 const format = str => String(str).replace('.', ',')
 
 function convert(selectChange = false) {
-    const focusedInput = selectChange ? fromInput : document.querySelector('input:focus') || document.querySelector('input.focus')
-    const blurInput = selectChange ? toInput : document.querySelector('input:not(:focus):not(.focus)')
+    const focusedInput = selectChange ?
+        fromInput :
+        document.querySelector('input:focus') || document.querySelector('input.focus')
+
+    const blurInput = selectChange ?
+        toInput :
+        document.querySelector('input:not(:focus):not(.focus)')
 
     const fromSelect = selectChange ?
         document.getElementById("from-type") :
@@ -108,13 +113,13 @@ const onButtonClick = event => {
 
     const input = getFocusedInput()
 
-    if("0123456789".indexOf(value) >= 0 || value == ',' && !input.value.includes(',')){
+    if ("0123456789".indexOf(value) >= 0 || value == ',' && !input.value.includes(',')) {
         input.value += value
         dispatchInput()
     }
 }
 
-document.querySelectorAll('.button').forEach(button => button.onclick = onButtonClick)
+document.querySelectorAll('button').forEach(button => button.onclick = onButtonClick)
 
 fromInput.focus()
 fromInput.click()
