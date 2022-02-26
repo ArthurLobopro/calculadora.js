@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de PA</title>
+    <link rel="stylesheet" href="../../../public/css/modules/pages.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script>
+</head>
+
+<body>
+    <div id="container">
+        <div class="menu">
+            <button class="selected" data-menu="generate">Gerar</button>
+            <button data-menu="discover">Descobrir Termo</button>
+        </div>
+        <div class="screen-wrapper">
+            <div class="screen visible" id="generate">
+                <div class="grid-input-group">
+                    Primeiro Termo: <input type="number" name="" id="">
+                    Razão: <input type="number" name="" id="">
+                    Quantidade: <input type="number" name="" id="">
+                </div>
+                <button class="generate">Gerar</button>
+            </div>
+            <div class="screen" id="discover">
+                <div class="grid-input-group">
+                    Primeiro Termo: <input type="number" id="">
+                    Razão: <input type="number" id="">
+                    Termo: <input type="number" id="">
+                </div>
+                <button class="generate">Descobrir</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
