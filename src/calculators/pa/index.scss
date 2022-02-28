@@ -1,11 +1,15 @@
+body{
+    overflow: hidden;
+}
+
 #container {
     display: grid;
-    grid-template-rows: max-content 1fr;
+    grid-template-rows: max-content auto 1fr;
     grid-row-gap: 15px;
     color: var(--text-color);
 }
 
-.generate{
+.submit{
     margin-top: 15px;
     border-radius: 3px;
     border: 1px solid var(--text-color);
@@ -42,6 +46,34 @@
             font-weight: bold;
         }
     }
+}
+
+#result{
+    display: flex;
+    flex-wrap: wrap;
+    &:empty{
+        visibility: hidden;
+    }
+}
+
+#result-wrapper{
+    overflow-y: auto;
+    height: 100%;
+}
+
+.res{
+    border: 2px solid var(--text-color);
+    width: 100%;
+    padding: 3px;
+    margin: 10px 5px 0 0;
+    text-align: left;
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: auto max-content;
+}
+
+.res:first-child{
+    margin: 0 5px 0 0;
 }
 
 input[type="number"]{

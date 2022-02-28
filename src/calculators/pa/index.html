@@ -20,20 +20,23 @@
         <div class="screen-wrapper">
             <div class="screen visible" id="generate">
                 <div class="grid-input-group">
-                    Primeiro Termo: <input type="number" name="" id="">
-                    Razão: <input type="number" name="" id="">
-                    Quantidade: <input type="number" name="" id="">
+                    Primeiro Termo: <input type="number" id="generate-first-term">
+                    Razão: <input type="number" id="generate-razion">
+                    Quantidade: <input type="number" id="generate-quantity">
                 </div>
-                <button class="generate">Gerar</button>
+                <button class="submit" id="generate-button">Gerar</button>
             </div>
             <div class="screen" id="discover">
                 <div class="grid-input-group">
-                    Primeiro Termo: <input type="number" id="">
-                    Razão: <input type="number" id="">
-                    Termo: <input type="number" id="">
+                    Primeiro Termo: <input type="number" id="dicover-first-term">
+                    Razão: <input type="number" id="discover-razion">
+                    Termo: <input type="number" id="discover-term">
                 </div>
-                <button class="generate">Descobrir</button>
+                <button class="submit" id="discover-button">Descobrir</button>
             </div>
+        </div>
+        <div id="result-wrapper">
+            <div id="result"></div>
         </div>
     </div>
 </body>
