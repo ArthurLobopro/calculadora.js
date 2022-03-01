@@ -53,7 +53,8 @@ const calculators = {
     "--equacao": () => createWindow("equacao/equacao.html"),
     "--padrao": () => createWindow("padrao/padrao.html"),
     "--time": () => createWindow("time/time.html"),
-    "--pa": () => createWindow("pa/index.html")
+    "--pa": () => createWindow("pa/index.html"),
+    "--pg": () => createWindow("pg/index.html"),
 }
 
 app.setJumpList([
