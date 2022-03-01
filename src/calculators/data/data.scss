@@ -1,6 +1,9 @@
 @import url('../../../public/css/modules/pages.css');
+@import url('../../../public/css/modules/var.css');
 
-$font: #eee;
+:root {
+    --text-color: #eee;
+}
 
 #container{
     grid-template-rows: repeat(3, max-content);
@@ -18,11 +21,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 input[type="date"]{
     width: 100%;
-    border: 1px solid $font;
+    border: 1px solid var(--text-color);
     margin: 5px 0;
     background-color: black;
     border-radius: 3px;
-    color: $font;
+    color: var(--text-color);
     font-size: 15px;
     font-family: 'Nunito';
     &:focus{
@@ -39,5 +42,5 @@ input[type="date"]{
 }
 
 #visor, .def{
-    color: $font;
+    color: var(--text-color);
 }

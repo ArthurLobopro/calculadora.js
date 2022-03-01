@@ -1,7 +1,5 @@
 @import url('../../../public/css/modules/pages.css');
-//Var
-$fundo: #1e1e1e;
-$componets-fundo: #000;
+@import url('../../../public/css/modules/var.css');
 
 #keyboard{
     width: 100%;
@@ -14,8 +12,8 @@ $componets-fundo: #000;
     //justify-content: space-between;
     //align-content: space-between;
     & select{
-        background-color: $componets-fundo;
-        color: #fff;
+        background-color: var(--components-background);
+        color: var(--text-color);
         border: none;
         border-radius: 5px;
         & > option{
@@ -28,8 +26,8 @@ $componets-fundo: #000;
     }
 }
 #visor{
-    background-color: $componets-fundo;
-    color: #fff;
+    background-color: var(--components-background);
+    color: var(--text-color);
     width: 100%;
     margin: 0 0 10px;
     padding: 10px;

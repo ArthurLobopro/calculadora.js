@@ -36,10 +36,10 @@ body {
     display: flex;
     width: 100%;
     & > button {
-        background-color: var(--fundo);
+        background-color: var(--background);
         width: 50%;
         font-size: 18px;
-        background-color: var(--components-fundo);
+        background-color: var(--components-background);
         font-weight: normal;
         &.selected {
             border-bottom: 2px solid var(--text-color);
@@ -85,7 +85,7 @@ body {
 }
 
 input[type="number"] {
-    background: var(--fundo);
+    background: var(--background);
     border: none;
     border-bottom: 1px #fff solid;
     width: 30px;

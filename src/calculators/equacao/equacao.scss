@@ -1,12 +1,9 @@
 @import url('../../../public/css/modules/pages.css');
 @import url("../../../public/fonts/css-import/RobotoSlab-Regular.css");
-
-$fundo: #1e1e1e;
-$componets-fundo: #000;
-$font: #eee;
+@import url("../../../public/css/modules/var.css");
 
 body{
-    color: $font;
+    color: var(--text-color);
     display: flex;
     justify-content: center;
     overflow: hidden;
@@ -19,14 +16,14 @@ label{
 }
 
 input[type="number"]{
-    background: $fundo;
+    background: var(--backgrond);
     border: none;
     border-bottom: 1px #fff solid;
     width: 30px;
     margin: -2px 5px 0;
     appearance: textfield;
     outline: 0;
-    color: $font;
+    color: var(--text-color);
     caret-color: transparent !important;
     text-align: center;
     &::-webkit-inner-spin-button {
@@ -72,10 +69,10 @@ input[type="number"]{
 }
 
 button{
-    background-color: $fundo;
-    color: $font;
+    background-color: var(--backgrond);
+    color: var(--text-color);
     padding: 2px 5px;
-    border: 1px solid $font;
+    border: 1px solid var(--text-color);
     border-radius: 3px;
     font-size: 18px;
     margin: 10px auto 0;
@@ -83,7 +80,7 @@ button{
 }
 
 .res{
-    border: 2px solid $font;
+    border: 2px solid var(--text-color);
     width: 100%;
     padding: 3px;
     margin: 10px 5px 0 0;

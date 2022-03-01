@@ -1,7 +1,5 @@
 @import url('../../../public/css/modules/pages.css');
 //Var
-$fundo: #1e1e1e;
-$componets-fundo: #000;
 
 #keyboard{
     width: 100%;
@@ -14,8 +12,8 @@ $componets-fundo: #000;
     //align-content: space-between;
 }
 #visor{
-    background-color: $componets-fundo;
-    color: #fff;
+    background-color: var(--components-background);
+    color: var(--text-color);
     width: 100%;
     margin: 0 0 10px;
     padding: 10px;
