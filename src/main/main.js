@@ -52,7 +52,9 @@ const calculators = {
     "--data": () => createWindow("data/data.html"),
     "--equacao": () => createWindow("equacao/equacao.html"),
     "--padrao": () => createWindow("padrao/padrao.html"),
-    "--time": () => createWindow("time/time.html")
+    "--time": () => createWindow("time/time.html"),
+    "--pa": () => createWindow("pa/index.html"),
+    "--pg": () => createWindow("pg/index.html"),
 }
 
 app.setJumpList([
@@ -96,6 +98,20 @@ app.setJumpList([
                 args: ". --time",
                 title: 'Tempo',
                 description: 'Calculadora de Tempo'
+            },
+            {
+                type: "task",
+                program: process.execPath,
+                args: ". --pa",
+                title: 'Gerador de PA',
+                description: 'Gerador de Progressão Aritimética'
+            },
+            {
+                type: "task",
+                program: process.execPath,
+                args: ". --pg",
+                title: 'Gerador de PG',
+                description: 'Gerador de Progressão Geométrica'
             }
         ]
     }

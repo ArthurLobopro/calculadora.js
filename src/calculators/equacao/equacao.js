@@ -18,9 +18,15 @@ const arrows = event => {
     const target = event.target
     const index = elements.indexOf(target)
     const key = event.key
+
     if (index != elements.length - 1 && ["ArrowRight", "Enter"].includes(key)) {
         elements[index + 1].focus()
     }
+
+    if(index === elements.length - 1 && key === "Enter"){
+        calc()
+    }
+
     if (index > 0 && key === "ArrowLeft") {
         elements[index - 1].focus()
     }

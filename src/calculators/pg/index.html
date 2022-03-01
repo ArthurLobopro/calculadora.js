@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de PG</title>
+    <link rel="stylesheet" href="../../../public/css/modules/pages.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="../../../assets/calculators-icons//PG.svg">
+    <script src="index.js" defer></script>
+</head>
+
+<body>
+    <div id="container">
+        <div class="menu">
+            <button class="selected" data-menu="generate">Gerar</button>
+            <button data-menu="discover">Descobrir Termo</button>
+        </div>
+        <div class="screen-wrapper">
+            <div class="screen visible" id="generate">
+                <div class="grid-input-group">
+                    Primeiro Termo: <input type="number" id="generate-first-term">
+                    Razão: <input type="number" id="generate-razion">
+                    Quantidade: <input type="number" id="generate-quantity">
+                </div>
+                <button class="submit" id="generate-button">Gerar</button>
+            </div>
+            <div class="screen" id="discover">
+                <div class="grid-input-group">
+                    Primeiro Termo: <input type="number" id="dicover-first-term">
+                    Razão: <input type="number" id="discover-razion">
+                    Termo: <input type="number" id="discover-term">
+                </div>
+                <button class="submit" id="discover-button">Descobrir</button>
+            </div>
+        </div>
+        <div id="result-wrapper">
+            <div id="result"></div>
+        </div>
+    </div>
+</body>
+
+</html>
