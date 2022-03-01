@@ -1,4 +1,4 @@
-body{
+body {
     overflow: hidden;
 }
 
@@ -9,7 +9,7 @@ body{
     color: var(--text-color);
 }
 
-.submit{
+.submit {
     margin-top: 15px;
     border-radius: 3px;
     border: 1px solid var(--text-color);
@@ -26,42 +26,50 @@ body{
 
 .screen {
     display: none;
-    &.visible{
+    &.visible {
         display: flex;
         flex-direction: column;
     }
 }
 
-.menu{
+.menu {
     display: flex;
     width: 100%;
-    & > button{
+    & > button {
         background-color: var(--fundo);
         width: 50%;
         font-size: 18px;
         background-color: var(--components-fundo);
         font-weight: normal;
-        &.selected{
+        &.selected {
             border-bottom: 2px solid var(--text-color);
             font-weight: bold;
         }
     }
 }
 
-#result{
+#result {
     display: flex;
     flex-wrap: wrap;
-    &:empty{
+    &:empty {
         visibility: hidden;
     }
 }
 
-#result-wrapper{
+#result-wrapper {
     overflow-y: auto;
     height: 100%;
 }
 
-.res{
+#result-wrapper {
+    margin: 0 5px;
+}
+
+.screen-wrapper {
+    padding-left: 5px;
+}
+
+.res {
     border: 2px solid var(--text-color);
     width: 100%;
     padding: 3px;
@@ -72,11 +80,11 @@ body{
     grid-template-columns: auto max-content;
 }
 
-.res:first-child{
+.res:first-child {
     margin: 0 5px 0 0;
 }
 
-input[type="number"]{
+input[type="number"] {
     background: var(--fundo);
     border: none;
     border-bottom: 1px #fff solid;
@@ -89,7 +97,7 @@ input[type="number"]{
     &::-webkit-inner-spin-button {
         display: none;
     }
-    &:focus{
+    &:focus {
         border-bottom-width: 2px;
         font-weight: bold;
     }
