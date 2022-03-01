@@ -98,6 +98,20 @@ app.setJumpList([
                 args: ". --time",
                 title: 'Tempo',
                 description: 'Calculadora de Tempo'
+            },
+            {
+                type: "task",
+                program: process.execPath,
+                args: ". --pa",
+                title: 'Gerador de PA',
+                description: 'Gerador de Progressão Aritimética'
+            },
+            {
+                type: "task",
+                program: process.execPath,
+                args: ". --pg",
+                title: 'Gerador de PG',
+                description: 'Gerador de Progressão Geométrica'
             }
         ]
     }
