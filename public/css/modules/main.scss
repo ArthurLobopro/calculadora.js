@@ -57,6 +57,28 @@ button {
     }
 }
 
+//Inputs
+input[type="number"]{
+    background: var(--backgrond);
+    border: none;
+    border-bottom: 1px #fff solid;
+    width: 30px;
+    margin: 0 5px 0;
+    appearance: textfield;
+    outline: 0;
+    color: var(--text-color);
+    caret-color: transparent !important;
+    text-align: center;
+    &::-webkit-inner-spin-button {
+        display: none;
+    }
+    &:focus{
+        border-bottom-width: 2px;
+        font-weight: bold;
+    }
+}
+
+//Scrollbar style
 ::-webkit-scrollbar {
     width: 8px;
     padding: 1px;
