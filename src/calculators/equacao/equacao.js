@@ -102,22 +102,8 @@ function calc() {
     }
 }
 
-const resizeWrapper = () => {
-    const wrapper = document.getElementById("result-wrapper")
-
-    const { y } = wrapper.getBoundingClientRect()
-
-    const totalHeight = window.innerHeight
-
-    wrapper.style.height = `${totalHeight - y - 10}px`
-}
-
 a_input.addEventListener('keyup', () => {
     a_input.style.borderBottomColor = a_input.value == "0" ? "red" : ""
 })
 
 document.querySelector("#calc").onclick = calc
-
-window.onload = resizeWrapper
-
-window.onresize = resizeWrapper
