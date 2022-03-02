@@ -1,6 +1,5 @@
-@import url('../../../public/css/modules/pages.css');
+@import url('../../../public/css/modules/main.css');
 @import url("../../../public/fonts/css-import/RobotoSlab-Regular.css");
-@import url("../../../public/css/modules/var.css");
 
 body{
     color: var(--text-color);
@@ -56,7 +55,6 @@ input[type="number"]{
 
 #result-wrapper{
     overflow-y: auto;
-    margin: 5px 0;
     height: 100%;
 }
 
