@@ -35,6 +35,15 @@ button {
     font-family: inherit;
     font-size: inherit;
     user-select: none;
+    cursor: pointer;
+    &.submit {
+        margin-top: 15px;
+        border-radius: 3px;
+        border: var(--submit-button-border);
+        width: max-content;
+        padding-inline: 5px;
+        align-self: center;
+    }
 }
 
 #keyboard .button,
@@ -49,6 +58,7 @@ button {
     user-select: none;
     border-radius: 5px;
     font-weight: bold;
+    cursor: auto;
     &:hover {
         background-color: var(--hover-button-background);
     }
@@ -58,7 +68,7 @@ button {
 }
 
 //Inputs
-input[type="number"]{
+input[type="number"] {
     background: var(--backgrond);
     border: none;
     border-bottom: 1px #fff solid;
@@ -72,7 +82,7 @@ input[type="number"]{
     &::-webkit-inner-spin-button {
         display: none;
     }
-    &:focus{
+    &:focus {
         border-bottom-width: 2px;
         font-weight: bold;
     }

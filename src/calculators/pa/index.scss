@@ -9,15 +9,6 @@ body {
     color: var(--text-color);
 }
 
-.submit {
-    margin-top: 15px;
-    border-radius: 3px;
-    border: 1px solid var(--text-color);
-    width: max-content;
-    padding-inline: 5px;
-    align-self: center;
-}
-
 .grid-input-group {
     display: grid;
     grid-template-columns: max-content 1fr;

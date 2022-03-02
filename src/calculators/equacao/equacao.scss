@@ -26,7 +26,7 @@ label{
 }
 
 #inputs{
-    margin: 20px auto;
+    margin: 20px auto 0;
 }
 
 .flex{
@@ -44,17 +44,6 @@ label{
     &:empty{
         visibility: hidden;
     }
-}
-
-button{
-    background-color: var(--backgrond);
-    color: var(--text-color);
-    padding: 2px 5px;
-    border: 1px solid var(--text-color);
-    border-radius: 3px;
-    font-size: 18px;
-    margin: 10px auto 0;
-    cursor: pointer;
 }
 
 .res{
