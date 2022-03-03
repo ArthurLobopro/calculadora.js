@@ -1055,10 +1055,10 @@ ecc-jsbn@~0.1.1:
     jsbn "~0.1.0"
     safer-buffer "^2.1.0"
 
-electron-frame@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/electron-frame/-/electron-frame-0.6.0.tgz#50019ae003fc15a5cd81ae499cba40859ce14df1"
-  integrity sha512-KmN7i5bcL5dIZ+/ZfInyR6GPKbIfpGX9sPYvV3a6jtFkzaeKgSwUGtkqqEufk5TPKJsaiS0+zKNmhoh9PekxlQ==
+electron-frame@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/electron-frame/-/electron-frame-0.6.1.tgz#b40818f3001213956c8a1604b8d39a823af68577"
+  integrity sha512-xSeDIz0Zhn48085cHVdkGFKbY5KuoK7UdtZ+jhIVVOYX2Fcq7/YrrcNtOFQJzIOh2XN3ovlT1UTYUBZyTC+3mg==
 
 electron-installer-common@^0.10.2:
   version "0.10.3"
@@ -1186,10 +1186,10 @@ electron-winstaller@^5.0.0:
     lodash.template "^4.2.2"
     temp "^0.9.0"
 
-electron@^16.0.2:
-  version "16.0.4"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-16.0.4.tgz#87dfe21d17608537fc6df292c437362297566a73"
-  integrity sha512-IptwmowvMP1SFOmZLh6rrURwfnOxbDBXBRBcaOdfBM5I+B9mgtdNwzNC3ymFFNzEkZUwdOyg9fu3iyjAAQIQgw==
+electron@^17.1.0:
+  version "17.1.0"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-17.1.0.tgz#7539937d294413af8efba69dc370cf7d2b0cdc72"
+  integrity sha512-X/qdldmQ8lA15NmeraubWCTtMeTO8K9Ser0wtSCgOXVh53Sr1Ea0VQQ7Q9LuGgWRVz4qtr40cntuEdM8icdmTw==
   dependencies:
     "@electron/get" "^1.13.0"
     "@types/node" "^14.6.2"
