@@ -27,7 +27,7 @@ function mainWindow() {
     win.loadFile("index.html")
 }
 
-function createWindow(href) {
+function createWindow(calculatorName) {
     const win = new BrowserWindow({
         frame: false,
         width: 315,
@@ -40,16 +40,17 @@ function createWindow(href) {
         icon: path.resolve(appPath, "assets/icon.png"),
         webPreferences: {
             nodeIntegration: true,
-            preload: path.join(__dirname, "preload.js")
+            preload: path.join(__dirname, "preload.js"),
+            additionalArguments: [`--calculator-name=${calculatorName}`]
         }
     })
 
-    win.loadFile(path.resolve(calculatorsFolder, href))
+    win.loadFile(path.resolve(appPath, "src/calculators/calculator.html"))
 }
 
 const calculators = {
     "--bases": () => createWindow("bases/bases.html"),
-    "--data": () => createWindow("data/data.html"),
+    "--data": () => createWindow("data"),
     "--equacao": () => createWindow("equacao/equacao.html"),
     "--padrao": () => createWindow("padrao/padrao.html"),
     "--time": () => createWindow("time/time.html"),

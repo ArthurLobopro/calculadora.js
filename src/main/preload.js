@@ -28,6 +28,10 @@ document.addEventListener("DOMContentLoaded", ()=> {
     }
 
     if(process.isMainFrame){
+        const calculatorName = getArgValue("--calculator-name")
+        if(calculatorName){
+            require(`../calculators/${calculatorName}/${calculatorName}.js`)
+        }
         insertFrame()
     }    
 })
