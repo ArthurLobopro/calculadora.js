@@ -1,99 +1,139 @@
-window.onload = () => {
-    const format = str => String(str).padStart(2,'0')
-    const date =  new Date()
-    const dateString = `${date.getFullYear()}-${format(date.getMonth()+1)}-${format(date.getDate())}`
-    console.log(dateString);
-    console.log(date);
-    document.querySelectorAll('input[type="date"]').forEach( e => e.value = dateString)
-    calc()
-}
+const path = require('path')
+const { range } = require("lib/Util")
 
-const de = document.getElementById('de')
-const para = document.getElementById('para')
-const visor = document.getElementById('visor')
-const range = (min,max,pass=1) => {
-    let array = []
-    if(min > max){
-        for(let i = min;i>=max;i-=pass){ array.push(i) }
-        return array
-    }
-
-    for(let i = min;i<=max;i+=pass){ array.push(i) }
-    return array
-}
-
-const reduceYears = (dias,range) => {
-    let anos = 0
-    for(let anoAtual of range){
-        const diasNoAno = anoAtual % 4 === 0 ? 366 : 365
-        if(dias - diasNoAno >=0){
-            anos++
-            dias-= diasNoAno
+function reduceYears(days, range) {
+    let years = 0
+    for (let anoAtual of range) {
+        const daysOfYear = anoAtual % 4 === 0 ? 366 : 365
+        if (days - daysOfYear >= 0) {
+            years++
+            days -= daysOfYear
         }
     }
-    return {dias, anos}
+    return { days, years }
 }
 
-const reduceMeses = (dias,{de}) => {
-    let meses = 0
-    const diasDoMes = [31,28,31,30,31,30,31,31,30,31,30,31]
-    let mesAtual = de.getMonth()
-    while(true){
-        if(dias - diasDoMes[mesAtual] >= 0){
-            meses++
-            dias-= diasDoMes[mesAtual]
-        }else{
-            return {dias, meses}
+function reduceMonths(days, { from }) {
+    let months = 0
+    const daysOfMonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    let atualMonth = from.getMonth()
+    while (true) {
+        if (days - daysOfMonths[atualMonth] >= 0) {
+            months++
+            days -= daysOfMonths[atualMonth]
+        } else {
+            return { days, months }
         }
-        mesAtual = mesAtual == 11 ? 0 : mesAtual + 1
+        atualMonth = atualMonth == 11 ? 0 : atualMonth + 1
     }
-   
+
 }
 
 
-function getDiferenca(dias, {de,para}) {
-    let anos = 0, meses = 0
-    if(dias < 0) dias*= -1
+function getDifference(days, { from, to }) {
+    let years = 0, months = 0
+    if (days < 0) days *= -1
 
-    const difAnos = para.getFullYear() - de.getFullYear()
-    if(difAnos !== 0){
-        if(difAnos > 0){
-            ;({anos,dias} = reduceYears(dias, range(de.getFullYear(), de.getFullYear() + difAnos)))
-        }else{
-            ;({anos,dias} = reduceYears(dias, range(para.getFullYear(), de.getFullYear() + difAnos)))
+    const yearsDiference = to.getFullYear() - from.getFullYear()
+    if (yearsDiference !== 0) {
+        const initRange = yearsDiference > 0 ? from : to
+            ; ({ years, days } = reduceYears(days, range(initRange.getFullYear(), from.getFullYear() + yearsDiference)))
+    }
+
+    ; ({ months, days } = reduceMonths(days, { from }))
+
+    console.table({ anos: years, meses: months, dias: days })
+    return { years, months, days }
+}
+
+class DateCalculator {
+    constructor() {
+        this.build()
+    }
+
+    getMetadata() {
+        const title = document.createElement('title')
+        title.innerText = "Calculadora de Data"
+
+        const iconLink = document.createElement('link')
+        iconLink.rel = "icon"
+        iconLink.href = path.resolve(__dirname, "../../../assets/calculators-icons/calendar-icon.svg")
+
+        const styleLink = document.createElement('link')
+        styleLink.rel = "stylesheet"
+        styleLink.href = path.resolve(__dirname, "./data.css")
+
+        return [title, iconLink, styleLink]
+    }
+
+    appendMetadata() {
+        this.getMetadata().forEach(tag => document.head.appendChild(tag))
+    }
+
+    append() {
+        this.appendMetadata()
+        document.body.appendChild(this.screen)
+    }
+
+    build() {
+        const format = str => String(str).padStart(2, '0')
+        const date = new Date()
+        const dateString = `${date.getFullYear()}-${format(date.getMonth() + 1)}-${format(date.getDate())}`
+
+        this.screen = document.createElement("div")
+        this.screen.id = "container"
+        this.screen.innerHTML = `
+            <div class="inputs">
+                <span class="def">De:</span>
+                <input type="date" id="from" value="${dateString}">
+            </div>
+            <div class="inputs">
+                <span class="def">Para:</span>
+                <input type="date" id="to" value="${dateString}">
+            </div>
+            <span class="def">Diferença:</span>
+            <div id="visor"></div>
+        `
+
+        const from = this.screen.querySelector('#from')
+        const to = this.screen.querySelector('#to')
+        const visor = this.screen.querySelector('#visor')
+
+        this.elements = {
+            from, to, visor
         }
+
+        Array(from, to).forEach(input => input.onchange = () => this.calc())
     }
 
-    ;({meses,dias} = reduceMeses(dias, {de}))
-    
-    console.table({anos,meses,dias})
-    return {anos,meses,dias}
+    calc() {
+        const from_value = String(this.elements.from.value).split('-')
+        const to_value = String(this.elements.to.value).split('-')
+
+        const dates = {
+            from: new Date(from_value),
+            to: new Date(to_value)
+        }
+
+        if (dates.from - 1 === dates.to - 1) {
+            return this.elements.visor.innerText = "Mesma data"
+        }
+
+        const ONE_SECOND = 1000 //ms
+        const ONE_DAY = 86400 * ONE_SECOND
+        const days = (new Date(to_value) - new Date(from_value)) / ONE_DAY
+        const difference = getDifference(days, dates)
+
+        const result_string = [
+            difference.years !== 0 ? `Anos: ${difference.years} ano${difference.years !== 1 ? 's' : ''}\n` : '',
+            difference.months !== 0 ? `Meses: ${difference.months} ${difference.months === 1 ? 'mês' : 'meses'}\n` : '',
+            difference.days !== 0 ? `Dias: ${difference.days} dia${difference.days !== 1 ? 's' : ''}\n` : '',
+            `Total de dias: ${days}`
+        ].join('')
+
+        this.elements.visor.innerText = result_string
+    }
 }
 
-const calc = () => {
-    const deValue = String(de.value).split('-')
-    const paraValue = String(para.value).split('-')
-
-    const data = {
-        de: new Date(deValue),
-        para: new Date(paraValue)
-    }
-
-    if(data.de - 1=== data.para - 1){
-        return  visor.innerText = "Mesma data"
-    }
-    // dana - data = diferença em ms, dividido por 1000 = diferença em segundos, dividido por 86400, diferença em dias
-    const dias = ((new Date(paraValue) - new Date(deValue)) /1000 ) / 86400
-    const dif = getDiferenca(dias,data)
-    
-    const resString = [
-        dif.anos !== 0 ? `Anos: ${dif.anos} ano${dif.anos !== 1 ? 's' : ''}\n` : '',
-        dif.meses !== 0 ? `Meses: ${dif.meses} ${dif.meses === 1 ? 'mês' : 'meses'}\n` : '',
-        dif.dias !== 0 ? `Dias: ${dif.dias} dia${dif.dias !== 1 ? 's': ''}\n` : '',
-        `Total de dias: ${dias}`
-    ].join('')
-
-    visor.innerText = resString
-}
-
-[de,para].forEach( input => input.onchange = calc)
+const screen = new DateCalculator()
+screen.append()
