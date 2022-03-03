@@ -67,6 +67,20 @@ button {
     }
 }
 
+//Result
+#result-wrapper {
+    overflow-y: auto;
+    height: 100%;
+}
+
+#result {
+    display: flex;
+    flex-wrap: wrap;
+    &:empty {
+        visibility: hidden;
+    }
+}
+
 //Inputs
 input[type="number"] {
     background: var(--backgrond);

@@ -29,21 +29,8 @@ label{
     margin: 20px auto 0;
 }
 
-.flex{
-    display: flex;
-}
-
 #result-wrapper{
-    overflow-y: auto;
-    height: 100%;
-}
-
-#result{
-    display: flex;
-    flex-wrap: wrap;
-    &:empty{
-        visibility: hidden;
-    }
+    margin-top: 15px;
 }
 
 .res{
