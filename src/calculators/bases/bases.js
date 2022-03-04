@@ -1,5 +1,5 @@
 const convert = require('lib/bases.js')
-const { createElement } = require('lib/Util')
+const { createElement, createButtonList } = require('lib/Util')
 const path = require("path")
 const paths = require('../../Paths')
 
@@ -16,12 +16,12 @@ class BasesCalculator {
         this.addEvents()
     }
 
-    getMetadata(){
+    getMetadata() {
         const title = createElement('title', { innerText: "Bases Decimais" })
 
         const iconLink = createElement('link', {
             rel: "icon",
-            href: path.resolve(paths.assetsPath, "calculators-icons","binary.svg")
+            href: path.resolve(paths.assetsPath, "calculators-icons", "binary.svg")
         })
 
         const styleLink = createElement('link', {
@@ -61,30 +61,19 @@ class BasesCalculator {
                 <option value="bin">Binário</option>
             </select>
 
-            <button data-value="Delete">CE</button>
-            <button data-value="Backspace">
-                <img src="${path.resolve(paths.assetsPath, "keyboard","delete.svg")}" alt="Apagar">
-            </button>
-
-            <button data-value="0">0</button>
-            <button class="disable" data-value="A">A</button>
-            <button class="disable" data-value="B">B</button>
-            <button class="disable" data-value="C">C</button>
-
-            <button data-value="1">1</button>
-            <button data-value="2">2</button>
-            <button data-value="3">3</button>
-            <button class=" disable" data-value="D">D</button>  
-
-            <button data-value="4">4</button>
-            <button data-value="5">5</button>
-            <button data-value="6">6</button>
-            <button class="disable" data-value="E">E</button>
-            
-            <button data-value="7">7</button>
-            <button data-value="8">8</button>  
-            <button data-value="9">9</button>
-            <button class="disable" data-value="F">F</button>
+            ${createButtonList([
+                {dataset: {value: "Delete"}, content: "CE"},
+                {
+                    dataset: {value: "Backspace"},
+                    content: `<img src="${path.resolve(paths.assetsPath, "keyboard", "delete.svg")}" alt="Apagar">`
+                },
+                ...[0, "A", "B", "C", 1, 2, 3, "D", 4, 5, 6, "E", 7, 8, 9, "F"].map(item => {
+                    return {
+                        dataset: { value: item }, content: item,
+                        classList: Number.isNaN(Number(item)) ? ["disable"] : []
+                    }
+                })
+            ]).join('')}
         </div>`
 
         this.elements = {
@@ -142,7 +131,7 @@ class BasesCalculator {
     }
 
     calc() {
-        const {bases_select, input} = this.elements
+        const { bases_select, input } = this.elements
         const { hex: hex_span, dec: dec_span, oct: oct_span, bin: bin_span } = this.elements.bases
 
         const base = bases_select.value
@@ -175,7 +164,7 @@ const validateAndWrite = (digito, base) => {
 const keyFunctions = {
     "Backspace": () => {
         const text = input.innerText
-        input.innerText = text.substring(0, text.length - 1) || "0"            
+        input.innerText = text.substring(0, text.length - 1) || "0"
     },
 
     "Delete": () => input.innerText = "0"
