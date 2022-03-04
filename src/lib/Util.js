@@ -25,4 +25,14 @@ const range = (min,max,pass=1) => {
     return array
 }
 
-module.exports =  { loadSVG, range }
+const createElement = (elementName = 'div', options = {}) => {
+    const element = document.createElement(elementName)
+
+    for (const optionName in options) {
+        element[optionName] = options[optionName]
+    }
+
+    return element
+}
+
+module.exports =  { loadSVG, range, createElement }
