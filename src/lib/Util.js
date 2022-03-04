@@ -35,4 +35,10 @@ const createElement = (elementName = 'div', {dataset = {}, ...options}) => {
     return element
 }
 
-module.exports = { loadSVG, range, createElement}
+const createButtonList = (buttonListOptions = [{dataset, content, ...options}]) => {
+    return buttonListOptions.map( ({dataset, content, ...options}) => {
+        return createElement('button', {dataset, innerHTML: content, ...options}).outerHTML
+    })
+}
+
+module.exports = { loadSVG, range, createElement, createButtonList}
