@@ -1,7 +1,7 @@
 const convert = require('lib/bases.js')
 const { createElement } = require('lib/Util')
 const path = require("path")
-const paths = require('../../paths')
+const paths = require('../../Paths')
 
 const digits = {
     bin: ["0", "1"],
