@@ -1,5 +1,5 @@
-const convert = require('lib/bases.js')
-const { createElement, createButtonList } = require('lib/Util')
+const convert = require('../../lib/bases.js')
+const { createElement, createButtonList } = require('../../lib/Util')
 const path = require("path")
 const paths = require('../../Paths')
 

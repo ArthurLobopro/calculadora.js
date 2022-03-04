@@ -1,4 +1,4 @@
-const { loadSVG } = require("lib/Util")
+const { loadSVG } = require("../../lib/Util")
 
 const appPath = window.appPath
 

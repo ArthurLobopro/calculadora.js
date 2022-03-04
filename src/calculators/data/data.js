@@ -1,5 +1,5 @@
 const path = require('path')
-const { range, createElement } = require("lib/Util")
+const { range, createElement } = require("../../lib/Util")
 const paths = require('../../Paths')
 
 function reduceYears(days, range) {

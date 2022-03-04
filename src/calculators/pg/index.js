@@ -1,4 +1,4 @@
-const { loadSVG } = require("lib/Util")
+const { loadSVG } = require("../../lib/Util")
 
 const circle = loadSVG(appPath, "assets", "circle-x.svg")
 
