@@ -1,5 +1,6 @@
 const path = require('path')
-const { range } = require("lib/Util")
+const { range, createElement } = require("lib/Util")
+const paths = require('../../paths')
 
 function reduceYears(days, range) {
     let years = 0
@@ -29,7 +30,6 @@ function reduceMonths(days, { from }) {
 
 }
 
-
 function getDifference(days, { from, to }) {
     let years = 0, months = 0
     if (days < 0) days *= -1
@@ -42,26 +42,27 @@ function getDifference(days, { from, to }) {
 
     ; ({ months, days } = reduceMonths(days, { from }))
 
-    console.table({ anos: years, meses: months, dias: days })
     return { years, months, days }
 }
 
 class DateCalculator {
     constructor() {
         this.build()
+        this.addEvents()
     }
 
     getMetadata() {
-        const title = document.createElement('title')
-        title.innerText = "Calculadora de Data"
+        const title = createElement('title', { innerText: "Calculadora de Data" })
 
-        const iconLink = document.createElement('link')
-        iconLink.rel = "icon"
-        iconLink.href = path.resolve(__dirname, "../../../assets/calculators-icons/calendar-icon.svg")
+        const iconLink = createElement('link', {
+            rel: "icon",
+            href: path.resolve(paths.assetsPath, "calculators-icons/calendar-icon.svg")
+        })
 
-        const styleLink = document.createElement('link')
-        styleLink.rel = "stylesheet"
-        styleLink.href = path.resolve(__dirname, "./data.css")
+        const styleLink = createElement('link', {
+            rel: "stylesheet",
+            href: path.resolve(__dirname, "./data.css")
+        })
 
         return [title, iconLink, styleLink]
     }
@@ -80,8 +81,7 @@ class DateCalculator {
         const date = new Date()
         const dateString = `${date.getFullYear()}-${format(date.getMonth() + 1)}-${format(date.getDate())}`
 
-        this.screen = document.createElement("div")
-        this.screen.id = "container"
+        this.screen = createElement("div", { id: "container" })
         this.screen.innerHTML = `
             <div class="inputs">
                 <span class="def">De:</span>
@@ -102,7 +102,10 @@ class DateCalculator {
         this.elements = {
             from, to, visor
         }
+    }
 
+    addEvents() {
+        const { from, to } = this.elements
         Array(from, to).forEach(input => input.onchange = () => this.calc())
     }
 
