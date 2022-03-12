@@ -49,11 +49,11 @@ function createWindow(calculatorName) {
 }
 
 const calculators = {
-    "--bases": () => createWindow("bases/bases.html"),
+    "--bases": () => createWindow("bases"),
     "--data": () => createWindow("data"),
     "--equacao": () => createWindow("equacao/equacao.html"),
     "--padrao": () => createWindow("padrao/padrao.html"),
-    "--time": () => createWindow("time/time.html"),
+    "--time": () => createWindow("time"),
     "--pa": () => createWindow("pa/index.html"),
     "--pg": () => createWindow("pg/index.html"),
 }
