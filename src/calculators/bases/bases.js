@@ -1,5 +1,5 @@
 const convert = require('../../lib/bases.js')
-const { createElement, createButtonList } = require('../../lib/Util')
+const { CalculatorBase, createElement, createButtonList } = require('../../lib/Elements')
 const path = require("path")
 const paths = require('../../Paths')
 
@@ -10,10 +10,9 @@ const digits = {
     hex: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
 }
 
-class BasesCalculator {
+class BasesCalculator extends CalculatorBase {
     constructor() {
-        this.build()
-        this.addEvents()
+        super()
     }
 
     getMetadata() {
@@ -30,15 +29,6 @@ class BasesCalculator {
         })
 
         return [title, iconLink, styleLink]
-    }
-
-    appendMetadata() {
-        this.getMetadata().forEach(tag => document.head.appendChild(tag))
-    }
-
-    append() {
-        this.appendMetadata()
-        document.body.appendChild(this.screen)
     }
 
     build() {
@@ -62,18 +52,18 @@ class BasesCalculator {
             </select>
 
             ${createButtonList([
-                {dataset: {value: "Delete"}, content: "CE"},
-                {
-                    dataset: {value: "Backspace"},
-                    content: `<img src="${path.resolve(paths.assetsPath, "keyboard", "delete.svg")}" alt="Apagar">`
-                },
-                ...[0, "A", "B", "C", 1, 2, 3, "D", 4, 5, 6, "E", 7, 8, 9, "F"].map(item => {
-                    return {
-                        dataset: { value: item }, content: item,
-                        classList: Number.isNaN(Number(item)) ? ["disable"] : []
-                    }
-                })
-            ]).join('')}
+            { dataset: { value: "Delete" }, content: "CE" },
+            {
+                dataset: { value: "Backspace" },
+                content: `<img src="${path.resolve(paths.assetsPath, "keyboard", "delete.svg")}" alt="Apagar">`
+            },
+            ...[0, "A", "B", "C", 1, 2, 3, "D", 4, 5, 6, "E", 7, 8, 9, "F"].map(item => {
+                return {
+                    dataset: { value: item }, content: item,
+                    classList: Number.isNaN(Number(item)) ? ["disable"] : []
+                }
+            })
+        ]).join('')}
         </div>`
 
         this.elements = {

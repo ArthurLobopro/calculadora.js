@@ -1,5 +1,6 @@
 const path = require('path')
-const { range, createElement } = require("../../lib/Util")
+const { range } = require("../../lib/Util")
+const { createElement, CalculatorBase } = require("../../lib/Elements")
 const paths = require('../../Paths')
 
 function reduceYears(days, range) {
@@ -45,10 +46,9 @@ function getDifference(days, { from, to }) {
     return { years, months, days }
 }
 
-class DateCalculator {
+class DateCalculator extends CalculatorBase{
     constructor() {
-        this.build()
-        this.addEvents()
+        super()
     }
 
     getMetadata() {
@@ -65,15 +65,6 @@ class DateCalculator {
         })
 
         return [title, iconLink, styleLink]
-    }
-
-    appendMetadata() {
-        this.getMetadata().forEach(tag => document.head.appendChild(tag))
-    }
-
-    append() {
-        this.appendMetadata()
-        document.body.appendChild(this.screen)
     }
 
     build() {
