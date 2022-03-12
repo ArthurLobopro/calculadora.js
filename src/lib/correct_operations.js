@@ -1,52 +1,86 @@
+//@ts-check
+
+/** 
+ * @param {number} num
+ * @returns {number}
+ * */
+const getDecimalNumberLength = num => String(num).length - String(num).indexOf('.') - 1
+
+/**
+ * @param {number} n1 Primeiro termo da soma
+ * @param {number} n2 Segundo termo da 
+ * @returns {number}
+ */
 function soma(n1, n2) {
-    let multi = 1
-    let n1_l = String(n1).length - String(n1).indexOf('.') - 1
-    let n2_l = String(n2).length - String(n2).indexOf('.') - 1
-    multi *= (n1_l > n2_l) ? 10 ** n1_l : 10 ** n2_l
-    return (n1 * multi + n2 * multi) / multi
+    const n1_length = getDecimalNumberLength(n1)
+    const n2_length = getDecimalNumberLength(n2)
+    const multiplier = 1 * 10 ** Math.max(n1_length, n2_length)
+    return (n1 * multiplier + n2 * multiplier) / multiplier
 }
 
+/**
+ * @param {number} n1 Primeiro termo da subtração
+ * @param {number} n2 Segundo termo da subtração
+ * @returns {number}
+ */
 function sub(n1, n2) {
-    let multi = 1
-    let n1_l = String(n1).length - String(n1).indexOf('.') - 1
-    let n2_l = String(n2).length - String(n2).indexOf('.') - 1
-    multi *= (n1_l > n2_l) ? 10 ** n1_l : 10 ** n2_l
-    return (n1 * multi - n2 * multi) / multi
+    const n1_length = getDecimalNumberLength(n1)
+    const n2_length = getDecimalNumberLength(n2)
+    const multiplier = 1 * 10 ** Math.max(n1_length, n2_length)
+    return (n1 * multiplier - n2 * multiplier) / multiplier
 }
 
+/**
+ * @param {number} n1 Primeiro termo da multiplicação
+ * @param {number} n2 Segundo termo da multiplicação
+ * @returns {number}
+ */
 function mult(n1, n2) {
-    let multi = 1
-    let n1_l = String(n1).length - String(n1).indexOf('.') - 1
-    let n2_l = String(n2).length - String(n2).indexOf('.') - 1
-    multi *= (n1_l > n2_l) ? 10 ** n1_l : 10 ** n2_l
-    return (n1 * multi) * (n2 * multi) / (multi * multi)
+    const n1_length = getDecimalNumberLength(n1)
+    const n2_length = getDecimalNumberLength(n2)
+    const multiplier = 1 * 10 ** Math.max(n1_length, n2_length)
+    return (n1 * multiplier) * (n2 * multiplier) / (multiplier * multiplier)
 }
 
+/**
+ * @param {number} n1 Primeiro termo da divisão
+ * @param {number} n2 Segundo termo da divisão
+ * @returns {number | Error}
+ */
 function div(n1, n2) {
-    let multi = 1
-    let n1_l = String(n1).length - String(n1).indexOf('.') - 1
-    let n2_l = String(n2).length - String(n2).indexOf('.') - 1
-    multi *= (n1_l > n2_l) ? 10 ** n1_l : 10 ** n2_l
-    const result = (n1 * multi) / (n2 * multi)
-    return Number.isNaN(result) || !Number.isFinite(result) ? "Indefinido" : result
+    if (n2 === 0) {
+        return new Error("Não é possível dividir por 0")
+    }
+    const n1_length = getDecimalNumberLength(n1)
+    const n2_length = getDecimalNumberLength(n2)
+    const multiplier = 1 * 10 ** Math.max(n1_length, n2_length)
+    const result = (n1 * multiplier) / (n2 * multiplier)
+    return result
 }
 
+/**
+ * @param {number} n Número a ser potencializado
+ * @param {number} exp Expoente, o valor padrão é `2`
+ * @returns {number}
+ */
 function pow(n, exp = 2) {
-    let multiplicador = 1
-    let n_l = String(n).length - String(n).indexOf('.') - 1
-    multiplicador = 10 ** n_l
+    const n_length = getDecimalNumberLength(n)
+    const multiplier = 1 * 10 ** n_length
     let total = 1
     if (exp >= 0) {
         for (let i = 0; i < exp; i++) {
-            total *= (n * multiplicador)
+            total *= (n * multiplier)
         }
-        return total / multiplicador ** exp
+        return total / multiplier ** exp
     } else {
         for (let i = 0; i > exp; i--) {
-            total = mult(total, div(n, multiplicador))
+            //@ts-ignore
+            total = mult(total, div(n, multiplier))
         }
         return total
     }
 }
 
-module.exports = { soma, sub, mult, div, pow }
+module.exports = Object.freeze({
+    soma, sub, mult, div, pow
+})
