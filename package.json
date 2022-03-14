@@ -7,7 +7,8 @@
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
-    "update-lib": "node update-lib.js"
+    "update-lib": "node update-lib.js",
+    "open": "electron ."
   },
   "keywords": [],
   "author": "Arthur Lobo",

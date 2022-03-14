@@ -1,5 +1,6 @@
 const { loadSVG } = require("./Util")
-const circle = loadSVG(appPath, "assets", "circle-x.svg")
+const Paths = require('../Paths')
+const circle = loadSVG(Paths.appPath, "assets", "circle-x.svg")
 
 function buildResultDiv(content, resultWrapper) {
     const result_div = document.createElement("div")
