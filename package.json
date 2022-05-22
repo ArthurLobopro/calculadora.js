@@ -13,7 +13,7 @@
   "author": "Arthur Lobo",
   "license": "MIT",
   "dependencies": {
-    "electron-frame": "^0.6.0",
+    "electron-frame": "^0.7.1",
     "electron-squirrel-startup": "^1.0.0",
     "lib": "./src/lib",
     "time-converter": "https://github.com/ArthurLobopro/time-converter"
