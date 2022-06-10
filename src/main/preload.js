@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.style.padding = "5px"
     }
 
-    if (process.isMainFrame) {
+    if (process.isMainFrame && process.platform !== "linux") {
         const frame = new electronFrame()
         frame.insert()
     }
