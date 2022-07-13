@@ -1,29 +1,40 @@
 const { app, BrowserWindow, ipcMain } = require("electron")
 const path = require("path")
+const { setWindowsJumplist } = require("./windows-actions.js")
 
 require('electron-frame/main')
 
 const appPath = app.getAppPath()
 const calculatorsFolder = path.resolve(__dirname, '../calculators')
 
-const isWindows = process.platform == "win32"
+const isWindows = process.platform === "win32"
+const isLinux = process.platform === "linux"
+
+const defaultConfig = {
+    frame: false,
+    maximizable: false,
+    fullscreenable: false,
+}
+
+const linuxConfig = {
+    frame: true,
+    autoHideMenuBar: true,
+}
 
 function mainWindow() {
     const win = new BrowserWindow({
-        frame: false,
         width: 315,
         minWidth: 315,
         height: 490,
         minHeight: 490,
         resizable: false,
-        maximizable: false,
-        fullscreenable: false,
         icon: path.resolve(appPath, "assets/icon.png"),
         webPreferences: {
             nodeIntegration: true,
             preload: path.resolve(__dirname, "preload.js"),
             nodeIntegrationInSubFrames: true
-        }
+        },
+        ...(isLinux ? linuxConfig : defaultConfig)
     })
 
     win.loadFile("index.html")
@@ -31,19 +42,17 @@ function mainWindow() {
 
 function createWindow(href) {
     const win = new BrowserWindow({
-        frame: false,
         width: 315,
         minWidth: 315,
         height: 465,
         minHeight: 465,
         resizable: false,
-        maximizable: false,
-        fullscreenable: false,
         icon: path.resolve(appPath, "assets/icon.png"),
         webPreferences: {
             nodeIntegration: true,
             preload: path.join(__dirname, "preload.js")
-        }
+        },
+        ...(isLinux ? linuxConfig : defaultConfig)
     })
 
     win.loadFile(path.resolve(calculatorsFolder, href))
@@ -60,65 +69,7 @@ const calculators = {
 }
 
 if (isWindows) {
-    app.setJumpList([
-        {
-            name: "Calculadoras",
-            type: "custom",
-            items: [
-                {
-                    type: "task",
-                    program: process.execPath,
-                    args: ". --bases",
-                    iconPath: path.resolve(appPath, "assets/binary.png"),
-                    iconIndex: 0,
-                    title: 'Bases',
-                    description: 'Calculadora de bases decimais'
-                },
-                {
-                    type: "task",
-                    program: process.execPath,
-                    args: ". --data",
-                    title: 'Data',
-                    description: 'Calculadora de Data'
-                },
-                {
-                    type: "task",
-                    program: process.execPath,
-                    args: ". --equacao",
-                    title: 'Eq. de 2° Grau',
-                    description: 'Calculadora de equação de 2° grau'
-                },
-                {
-                    type: "task",
-                    program: process.execPath,
-                    args: ". --padrao",
-                    title: 'Padrão',
-                    description: 'Calculadora Padrão'
-                },
-                {
-                    type: "task",
-                    program: process.execPath,
-                    args: ". --time",
-                    title: 'Tempo',
-                    description: 'Calculadora de Tempo'
-                },
-                {
-                    type: "task",
-                    program: process.execPath,
-                    args: ". --pa",
-                    title: 'Gerador de PA',
-                    description: 'Gerador de Progressão Aritimética'
-                },
-                {
-                    type: "task",
-                    program: process.execPath,
-                    args: ". --pg",
-                    title: 'Gerador de PG',
-                    description: 'Gerador de Progressão Geométrica'
-                }
-            ]
-        }
-    ])
+    setWindowsJumplist()
 }
 
 app.whenReady().then(

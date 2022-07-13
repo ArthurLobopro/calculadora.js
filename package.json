@@ -1,19 +1,20 @@
 {
   "name": "calculadora.js",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "description": "Calculadora Simples",
   "main": "src/main/main.js",
   "scripts": {
     "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "update-lib": "node update-lib.js"
+    "package": "yarn scss-compile && electron-forge package",
+    "make": "yarn scss-compile && electron-forge make",
+    "update-lib": "node update-lib.js",
+    "scss-compile": "yarn sass-compiler --compiler"
   },
   "keywords": [],
   "author": "Arthur Lobo",
   "license": "MIT",
   "dependencies": {
-    "electron-frame": "^0.7.1",
+    "electron-frame": "^0.7.3",
     "electron-squirrel-startup": "^1.0.0",
     "lib": "./src/lib",
     "time-converter": "https://github.com/ArthurLobopro/time-converter"
@@ -24,7 +25,8 @@
     "@electron-forge/maker-rpm": "^6.0.0-beta.54",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
     "@electron-forge/maker-zip": "^6.0.0-beta.54",
-    "electron": "^16.0.2"
+    "electron": "^19.0.4",
+    "sass-compiler": "^1.2.3"
   },
   "config": {
     "forge": {
@@ -56,10 +58,23 @@
         },
         {
           "name": "@electron-forge/maker-deb",
-          "config": {}
+          "platforms": [
+            "linux"
+          ],
+          "config": {
+            "name": "calculadora.js",
+            "productName": "Calculadora.js",
+            "categories": [
+              "Utility"
+            ],
+            "description": "Calculadora simples feita com electron",
+            "genericName": "Calculadora",
+            "icon": "./assets/icon.png"
+          }
         },
         {
           "name": "@electron-forge/maker-rpm",
+          "platforms": [],
           "config": {}
         }
       ]
