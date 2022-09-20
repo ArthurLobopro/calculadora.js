@@ -1,4 +1,7 @@
 const { app } = require('electron')
+const path = require("path")
+
+const appPath = app.getAppPath()
 
 function setWindowsJumplist() {
     app.setJumpList([
