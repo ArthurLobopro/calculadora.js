@@ -778,7 +778,7 @@ caseless@~0.12.0:
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
   integrity sha512-4tYFyifaFfGacoiObjJegolkwSU4xQNGbVgUiNYVUxbQ2x2lUsFvY4hVgVzGiIe6WLOPqycWXA40l+PWsxthUw==
 
-chalk@^2.4.1:
+chalk@^2.3.0, chalk@^2.4.1:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.4.2.tgz#cd42541677a54333cf541a49108c1432b44c9424"
   integrity sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==
@@ -986,6 +986,12 @@ console-control-strings@^1.1.0:
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha512-ty/fTekppD2fIwRvnZAVdeOiGd1c7YXEixbgJTNzqcxJWKQnjJ/V1bNEEE6hygpM3WjwHFUVK6HTjWSzV4a8sQ==
 
+"copy-directory@git+https://github.com/ArthurLobopro/copy-directory.git":
+  version "1.0.3"
+  resolved "git+https://github.com/ArthurLobopro/copy-directory.git#2d5f4e388b11d70b1f630590f0b109e78608fd37"
+  dependencies:
+    chalk "^2.3.0"
+
 core-util-is@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
@@ -1160,10 +1166,12 @@ ecc-jsbn@~0.1.1:
     jsbn "~0.1.0"
     safer-buffer "^2.1.0"
 
-electron-frame@^0.7.3:
-  version "0.7.3"
-  resolved "https://registry.yarnpkg.com/electron-frame/-/electron-frame-0.7.3.tgz#fd08fc45eb05144e49c8d9a71483c8e3ac01f1e3"
-  integrity sha512-2YqEBFSmGzKb8m87R1MwC6PP8Y3P5FdVaeTKKCf/qOj8n7Nsf19Yx85w+zSir1dXKQYEgKeTiSLALDOH2RYcPQ==
+electron-frame@^0.7.5:
+  version "0.7.5"
+  resolved "https://registry.yarnpkg.com/electron-frame/-/electron-frame-0.7.5.tgz#5490ed4075cfeda400176d1694ef2760854c3db4"
+  integrity sha512-eIjjvpbT45onXX9lr+QikG+KAOgp7O8uLbXNilxuZLlbHSFJ7nMFyzcFiMpGSCq7IZIKPoqEGxye+01fX2oq3w==
+  dependencies:
+    copy-directory "https://github.com/ArthurLobopro/copy-directory"
 
 electron-installer-common@^0.10.2:
   version "0.10.3"
@@ -1297,10 +1305,10 @@ electron-winstaller@^5.0.0:
     lodash.template "^4.2.2"
     temp "^0.9.0"
 
-electron@^19.0.4:
-  version "19.0.4"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-19.0.4.tgz#a88d5e542868c4abd7704228ec62c553605605a0"
-  integrity sha512-roRYr1VNAWIhjD9n8qZdmhROtrzsFpuZEXrjWAw+GqPbZlrUInmvFCviRDC2Lt+VBsTNRpTfPpfzXSlLL4reEw==
+electron@19.0.17:
+  version "19.0.17"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-19.0.17.tgz#850d806e88b1ef141b88b491dc41661778691c27"
+  integrity sha512-3Offu61K+d19EZIc76MhKRsSCqfe3jDiqtD0p8jXr6p/TW7+7/jOQp407ZaZu0nQN6/xDIEi2sP4XQBom6GjTQ==
   dependencies:
     "@electron/get" "^1.14.1"
     "@types/node" "^16.11.26"
