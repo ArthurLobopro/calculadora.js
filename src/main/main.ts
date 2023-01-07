@@ -37,7 +37,7 @@ function mainWindow() {
         ...(isLinux ? linuxConfig : defaultConfig)
     })
 
-    win.loadFile("index.html")
+    win.loadFile(path.resolve(appPath, "public/index.html"))
 }
 
 function createWindow(href: string) {

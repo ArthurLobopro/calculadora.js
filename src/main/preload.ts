@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
         })
+        require("../renderer/renderer.js")
     } else if (process.isMainFrame) {
         document.body.style.padding = "5px"
     }
@@ -31,6 +32,4 @@ document.addEventListener("DOMContentLoaded", () => {
         const frame = new ElectronFrame({})
         frame.insert()
     }
-
-    require("../renderer/renderer.js")
 })
