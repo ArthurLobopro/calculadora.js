@@ -986,9 +986,9 @@ console-control-strings@^1.1.0:
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha512-ty/fTekppD2fIwRvnZAVdeOiGd1c7YXEixbgJTNzqcxJWKQnjJ/V1bNEEE6hygpM3WjwHFUVK6HTjWSzV4a8sQ==
 
-"copy-directory@git+https://github.com/ArthurLobopro/copy-directory.git":
+"copy-directory@https://github.com/ArthurLobopro/copy-directory":
   version "1.0.3"
-  resolved "git+https://github.com/ArthurLobopro/copy-directory.git#2d5f4e388b11d70b1f630590f0b109e78608fd37"
+  resolved "https://github.com/ArthurLobopro/copy-directory#1175d3b9fa4a9d12252e9771ea82db01d8997890"
   dependencies:
     chalk "^2.3.0"
 
@@ -3654,6 +3654,11 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+
+typescript@^4.9.4:
+  version "4.9.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.4.tgz#a2a3d2756c079abda241d75f149df9d561091e78"
+  integrity sha512-Uz+dTXYzxXXbsFpM86Wh3dKCxrQqUcVMxwU54orwlJjOpO3ao8L7j5lH+dWfTwgCwIuM9GQ2kvVotzYJMXTBZg==
 
 unique-filename@^1.1.1:
   version "1.1.1"
