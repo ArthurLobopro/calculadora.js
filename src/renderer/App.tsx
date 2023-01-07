@@ -1,4 +1,4 @@
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import { assetsPath } from "../Util"
 import { resolve } from "path"
 
@@ -36,34 +36,44 @@ const Links = [
 export function App() {
     const isLock = useRef(false)
     const menu = useRef(null as unknown as HTMLDivElement)
+    const iframe = useRef(null as unknown as HTMLIFrameElement)
 
-    function handleMenuExpandClick() {
+    async function handleChangeLoaded(path: string) {
+        handleMenuExpandClick()
+        iframe.current.src = resolve(__dirname, `../calculators/${path}`)
+    }
+
+    async function handleMenuExpandClick() {
         if (isLock.current) { return null }
 
         isLock.current = true
         setTimeout(() => isLock.current = false, 1000)
 
-        const fundo = document.getElementById('fundo-invisivel') as HTMLDivElement
-        if (fundo.classList.contains('visible')) {
-            menu.current?.classList.toggle('visible')
-            setTimeout(() => {
-                fundo.classList.toggle('visible')
-            }, 550)
-            window.onclick = null
-        } else {
-            fundo.classList.toggle('visible')
-            setTimeout(() => {
+        return new Promise(resolve => {
+            const fundo = document.getElementById('fundo-invisivel') as HTMLDivElement
+            if (fundo.classList.contains('visible')) {
                 menu.current?.classList.toggle('visible')
-                isLock.current = false
-            }, 100)
-            menu.current.onmouseenter = () => window.onclick = null
-            menu.current.onmouseleave = () => {
-                window.onclick = () => {
-                    handleMenuExpandClick()
+                setTimeout(() => {
                     window.onclick = null
+                    fundo.classList.toggle('visible')
+                    resolve(true)
+                }, 550)
+            } else {
+                fundo.classList.toggle('visible')
+                menu.current.onmouseenter = () => window.onclick = null
+                menu.current.onmouseleave = () => {
+                    window.onclick = () => {
+                        handleMenuExpandClick()
+                        window.onclick = null
+                    }
                 }
+                setTimeout(() => {
+                    menu.current?.classList.toggle('visible')
+                    isLock.current = false
+                    resolve(true)
+                }, 100)
             }
-        }
+        })
     }
 
     return (
@@ -84,7 +94,10 @@ export function App() {
                 <div id="menu" ref={menu}>
                     <ul>
                         {Links.map(link => (
-                            <li data-src={resolve(__dirname, `../calculators/${link.path}`)} key={link.path}>
+                            <li
+                                data-src={resolve(__dirname, `../calculators/${link.path}`)} key={link.path}
+                                onClick={() => handleChangeLoaded(link.path)}
+                            >
                                 {link.name}
                                 <img src={resolve(assetsPath, "hyperlink.png")} data-href={link.path} />
                             </li>
@@ -93,7 +106,7 @@ export function App() {
                 </div>
             </div>
 
-            <iframe src={resolve(__dirname, "../calculators/padrao/padrao.html")}></iframe>
+            <iframe ref={iframe} src={resolve(__dirname, `../calculators/${Links[0].path}`)}></iframe>
         </>
     )
 }
