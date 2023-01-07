@@ -3,6 +3,8 @@ import { resolve } from "path"
 import { assetsPath } from "../../Util"
 import { buttons } from "./buttonsLayout"
 
+import * as conversor from "../../lib/bases"
+
 const digits = {
     dec: "0123456789",
     hex: "0123456789ABCDEF",
@@ -11,12 +13,14 @@ const digits = {
 }
 
 export function BasesCalculator() {
-    // useEffect(() => {
-    //     if (process.isMainFrame) {
-    //         const link = document.querySelector("link[rel='icon'") as HTMLLinkElement
-    //         link.href = resolve(assetsPath, "calculators-icons/binary.svg")
-    //     }
-    // }, [])
+    useEffect(() => {
+        if (process.isMainFrame) {
+            const link = document.querySelector("link[rel='icon'") as HTMLLinkElement
+            if (link) {
+                link.href = resolve(assetsPath, "calculators-icons/binary.svg")
+            }
+        }
+    }, [])
 
     useEffect(() => {
         const onclick = (event: KeyboardEvent) => {
@@ -57,22 +61,33 @@ export function BasesCalculator() {
     const [digitsType, setDigtsType] = useState<keyof typeof digits>("dec")
     const [visorContent, setVisorContent] = useState(["0"])
 
+    const conversions = {
+        bin: digitsType === "bin" ? visorContent.join("") : conversor[`${digitsType}_to_bin`](visorContent.join("")),
+        oct: digitsType === "oct" ? visorContent.join("") : conversor[`${digitsType}_to_oct`](visorContent.join("")),
+        dec: digitsType === "dec" ? visorContent.join("") : conversor[`${digitsType}_to_dec`](visorContent.join("")),
+        hex: digitsType === "hex" ? visorContent.join("") : conversor[`${digitsType}_to_hex`](visorContent.join("") as never)
+    }
+
     return (
         <div className="calculator-wrapper" id="bases">
             <div id="visor">
                 <div id="input">{visorContent.join("")}</div>
                 <div>
-                    <div>HEX: <span id="hex">0</span></div>
-                    <div>DEC: <span id="dec">0</span></div>
-                    <div>OCT: <span id="oct">0</span> </div>
-                    <div>BIN: <span id="bin">0</span></div>
+                    <div>HEX: <span id="hex">{conversions.hex}</span></div>
+                    <div>DEC: <span id="dec">{conversions.dec}</span></div>
+                    <div>OCT: <span id="oct">{conversions.oct}</span> </div>
+                    <div>BIN: <span id="bin">{conversions.bin}</span></div>
                 </div>
             </div>
             <div id="keyboard">
 
                 <select
                     className="long" id="bases" value={digitsType}
-                    onChange={(event) => setDigtsType(event.target.value as keyof typeof digits)}
+                    onChange={(event) => {
+                        const value = event.target.value as keyof typeof digits
+                        setVisorContent(conversions[value].toString().split(""))
+                        setDigtsType(value)
+                    }}
                 >
                     <option value="dec">Decimal</option>
                     <option value="hex">Hexadecimal</option>
