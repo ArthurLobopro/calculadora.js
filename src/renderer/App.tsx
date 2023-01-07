@@ -1,6 +1,7 @@
 import { useRef, useState } from "react"
 import { assetsPath } from "../Util"
 import { resolve } from "path"
+import { ipcRenderer } from "electron"
 
 const Links = [
     {
@@ -76,6 +77,8 @@ export function App() {
         })
     }
 
+
+
     return (
         <>
             <header>
@@ -85,9 +88,7 @@ export function App() {
                     </div>
                     <span id="calculator-name">Padrão</span>
                 </div>
-                <div id="toggleAlwaysOnTop" title="Fixar janela no topo.">
-                    <img src={resolve(assetsPath, "alwaysOnTop-false.svg")} />
-                </div>
+                <AlwaysOnTop />
             </header>
 
             <div id="fundo-invisivel">
@@ -108,5 +109,22 @@ export function App() {
 
             <iframe ref={iframe} src={resolve(__dirname, `../calculators/${Links[0].path}`)}></iframe>
         </>
+    )
+}
+
+function AlwaysOnTop() {
+    const toggleAlwaysOnTop = () => {
+        const isAlwaysOnTop = ipcRenderer.sendSync("toggle-alwaysOnTop")
+        setImgSrc(resolve(assetsPath, `alwaysOnTop-${isAlwaysOnTop}.svg`))
+        setTitle(!isAlwaysOnTop ? "Fixar janela no topo." : "Desfixar janela do topo.")
+    }
+
+    const [title, setTitle] = useState("Fixar janela no topo.")
+    const [imgSrc, setImgSrc] = useState(resolve(assetsPath, "alwaysOnTop-false.svg"))
+
+    return (
+        <div id="toggleAlwaysOnTop" title={title} onClick={toggleAlwaysOnTop}>
+            <img src={resolve(assetsPath, imgSrc)} />
+        </div>
     )
 }
