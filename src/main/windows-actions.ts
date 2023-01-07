@@ -1,9 +1,9 @@
-const { app } = require('electron')
-const path = require("path")
+import { app } from 'electron'
+import path from "path"
 
 const appPath = app.getAppPath()
 
-function setWindowsJumplist() {
+export function setWindowsJumplist() {
     app.setJumpList([
         {
             name: "Calculadoras",
@@ -64,5 +64,3 @@ function setWindowsJumplist() {
         }
     ])
 }
-
-module.exports = { setWindowsJumplist }
