@@ -21,20 +21,6 @@
 //     }
 // })
 
-// const menu = document.getElementById('menu') as HTMLDivElement
-
-// let isLock = false
-
-
-
-// const toggleAlwaysOnTop_button = document.getElementById("toggleAlwaysOnTop") as HTMLButtonElement
-// const toggleAlwaysOnTop_image = toggleAlwaysOnTop_button.querySelector("img") as HTMLImageElement
-// const toggleAlwaysOnTop = () => {
-//     const isAlwaysOnTop = ipcRenderer.sendSync("toggle-alwaysOnTop")
-//     toggleAlwaysOnTop_image.src = `./assets/alwaysOnTop-${isAlwaysOnTop}.svg`
-//     toggleAlwaysOnTop_button.title = !isAlwaysOnTop ? "Fixar janela no topo." : "Desfixar janela do topo."
-// }
-
 // toggleAlwaysOnTop_button.onclick = toggleAlwaysOnTop
 
 // window.onresize = () => {

@@ -14,15 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const isMain = location.href.search('index.html') !== -1
 
     if (isMain) {
-        const imageLinks = document.querySelectorAll('ul > li > img') as NodeListOf<HTMLImageElement>
-        imageLinks.forEach(i => {
-            i.onclick = (event: MouseEvent) => {
-                const href = (event.currentTarget as HTMLElement).dataset?.href
-
-                ipcRenderer.send('new-window', href)
-
-            }
-        })
         require("../renderer/renderer.js")
     } else if (process.isMainFrame) {
         document.body.style.padding = "5px"

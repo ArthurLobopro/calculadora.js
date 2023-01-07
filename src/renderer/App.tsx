@@ -77,8 +77,6 @@ export function App() {
         })
     }
 
-
-
     return (
         <>
             <header>
@@ -100,7 +98,14 @@ export function App() {
                                 onClick={() => handleChangeLoaded(link.path)}
                             >
                                 {link.name}
-                                <img src={resolve(assetsPath, "hyperlink.png")} data-href={link.path} />
+                                <img
+                                    src={resolve(assetsPath, "hyperlink.png")} data-href={link.path}
+                                    onClick={e => {
+                                        e.stopPropagation()
+                                        ipcRenderer.send('new-window', link.path)
+                                        handleMenuExpandClick()
+                                    }}
+                                />
                             </li>
                         ))}
                     </ul>
