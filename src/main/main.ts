@@ -1,6 +1,6 @@
-const { app, BrowserWindow, ipcMain } = require("electron")
-const path = require("path")
-const { setWindowsJumplist } = require("./windows-actions.js")
+import { app, BrowserWindow, ipcMain } from "electron"
+import path from "path"
+import { setWindowsJumplist } from "./windows-actions"
 
 require('electron-frame/main')
 
@@ -40,7 +40,7 @@ function mainWindow() {
     win.loadFile("index.html")
 }
 
-function createWindow(href) {
+function createWindow(href: string) {
     const win = new BrowserWindow({
         width: 315,
         minWidth: 315,
@@ -77,8 +77,8 @@ app.whenReady().then(
         const args = process.argv
 
         for (const arg of args) {
-            if (calculators[arg]) {
-                calculators[arg]()
+            if (arg in calculators) {
+                calculators[arg as keyof typeof calculators]()
                 return
             }
         }
@@ -92,7 +92,7 @@ ipcMain.on('request-app-path', (event) => {
 })
 
 ipcMain.on('toggle-alwaysOnTop', (event) => {
-    const win = BrowserWindow.getFocusedWindow()
+    const win = BrowserWindow.fromId(event.sender.id) as BrowserWindow
     const isAlwaysOnTop = win.isAlwaysOnTop()
     win.setAlwaysOnTop(!isAlwaysOnTop)
     event.returnValue = !isAlwaysOnTop
@@ -116,5 +116,5 @@ ipcMain.on('new-window', (event, arg) => {
 
 // Faz com que o programa não inicie várias vezes durante a instalação
 if (require('electron-squirrel-startup')) {
-    app.quit();
+    app.quit()
 }
