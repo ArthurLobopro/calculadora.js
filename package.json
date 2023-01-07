@@ -14,7 +14,7 @@
   "author": "Arthur Lobo",
   "license": "MIT",
   "dependencies": {
-    "electron-frame": "^0.7.5",
+    "electron-frame": "^1.2.1",
     "electron-squirrel-startup": "^1.0.0",
     "lib": "./src/lib",
     "time-converter": "https://github.com/ArthurLobopro/time-converter"

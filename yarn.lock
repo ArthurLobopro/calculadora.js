@@ -778,7 +778,7 @@ caseless@~0.12.0:
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
   integrity sha512-4tYFyifaFfGacoiObjJegolkwSU4xQNGbVgUiNYVUxbQ2x2lUsFvY4hVgVzGiIe6WLOPqycWXA40l+PWsxthUw==
 
-chalk@^2.3.0, chalk@^2.4.1:
+chalk@^2.4.1:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.4.2.tgz#cd42541677a54333cf541a49108c1432b44c9424"
   integrity sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==
@@ -986,12 +986,6 @@ console-control-strings@^1.1.0:
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha512-ty/fTekppD2fIwRvnZAVdeOiGd1c7YXEixbgJTNzqcxJWKQnjJ/V1bNEEE6hygpM3WjwHFUVK6HTjWSzV4a8sQ==
 
-"copy-directory@https://github.com/ArthurLobopro/copy-directory":
-  version "1.0.3"
-  resolved "https://github.com/ArthurLobopro/copy-directory#1175d3b9fa4a9d12252e9771ea82db01d8997890"
-  dependencies:
-    chalk "^2.3.0"
-
 core-util-is@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
@@ -1166,12 +1160,10 @@ ecc-jsbn@~0.1.1:
     jsbn "~0.1.0"
     safer-buffer "^2.1.0"
 
-electron-frame@^0.7.5:
-  version "0.7.5"
-  resolved "https://registry.yarnpkg.com/electron-frame/-/electron-frame-0.7.5.tgz#5490ed4075cfeda400176d1694ef2760854c3db4"
-  integrity sha512-eIjjvpbT45onXX9lr+QikG+KAOgp7O8uLbXNilxuZLlbHSFJ7nMFyzcFiMpGSCq7IZIKPoqEGxye+01fX2oq3w==
-  dependencies:
-    copy-directory "https://github.com/ArthurLobopro/copy-directory"
+electron-frame@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/electron-frame/-/electron-frame-1.2.1.tgz#8d7c0b93ae76bc7db7b233205611f257daef03f0"
+  integrity sha512-cy4UjC/M++EEBM9ONKNwAHY+/+g6KB725eOUdZ920eZOyGHTK/c0ORHr3g/0gppiuboHagNWqDJk2zRlLnyDvg==
 
 electron-installer-common@^0.10.2:
   version "0.10.3"
