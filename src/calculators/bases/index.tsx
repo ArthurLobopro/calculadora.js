@@ -18,12 +18,49 @@ export function BasesCalculator() {
     //     }
     // }, [])
 
-    const [digtsType, setDigtsType] = useState<keyof typeof digits>("dec")
+    useEffect(() => {
+        const onclick = (event: KeyboardEvent) => {
+            const { key } = event
+            const button_key = key.length === 1 ? key.toUpperCase() : key
+            const button = document.querySelector(`button[value="${button_key}"]`) as HTMLButtonElement
+            if (button) {
+                button.click()
+            }
+        }
+        window.addEventListener("keydown", onclick)
+
+        return () => window.removeEventListener("keydown", onclick)
+    }, [])
+
+    function handleButtonClick(value: string) {
+        if (value === "Delete") {
+            return setVisorContent(["0"])
+        }
+
+        if (value === "Backspace") {
+            return setVisorContent(content => {
+                if (content.length === 1) {
+                    return ["0"]
+                } else {
+                    return content.slice(0, content.length - 1)
+                }
+            })
+        }
+
+        if (visorContent.length === 1 && visorContent[0] === "0") {
+            return setVisorContent([value])
+        }
+
+        setVisorContent(content => [...content, value])
+    }
+
+    const [digitsType, setDigtsType] = useState<keyof typeof digits>("dec")
+    const [visorContent, setVisorContent] = useState(["0"])
 
     return (
         <div className="calculator-wrapper" id="bases">
             <div id="visor">
-                <div id="input">0</div>
+                <div id="input">{visorContent.join("")}</div>
                 <div>
                     <div>HEX: <span id="hex">0</span></div>
                     <div>DEC: <span id="dec">0</span></div>
@@ -33,23 +70,30 @@ export function BasesCalculator() {
             </div>
             <div id="keyboard">
 
-                <select className="long" id="bases">
+                <select
+                    className="long" id="bases" value={digitsType}
+                    onChange={(event) => setDigtsType(event.target.value as keyof typeof digits)}
+                >
                     <option value="dec">Decimal</option>
                     <option value="hex">Hexadecimal</option>
                     <option value="oct">Octal</option>
                     <option value="bin">Binário</option>
                 </select>
 
-                {buttons.map(({ value, content }, index) => (
-                    <button
-                        className={["Delete", "Backspace", ...digits[digtsType].split("")].includes(value) ? "" : "disable"}
-                        key={index} value={value}
-                    >
-                        {content}
-                    </button>
-                ))}
+                {buttons.map(({ value, content }, index) => {
+                    const isDisable = !["Delete", "Backspace", ...digits[digitsType].split("")].includes(value)
+                    return (
+                        <button
+                            className={!isDisable ? "" : "disable"}
+                            key={index} value={value}
+                            onClick={() => !isDisable && handleButtonClick(value)}
+                        >
+                            {content}
+                        </button>
+                    )
+                })}
 
             </div>
-        </div>
+        </div >
     )
 }

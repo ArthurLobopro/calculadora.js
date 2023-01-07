@@ -11,7 +11,8 @@ const Links = [
     },
     {
         name: "Bases",
-        path: "bases/bases.html"
+        path: "bases/bases.html",
+        component: BasesCalculator
     },
     {
         name: "Eq. 2º Grau",
@@ -78,6 +79,8 @@ export function App() {
         })
     }
 
+    const [content, setContent] = useState(<BasesCalculator />)
+
     return (
         <>
             <header>
@@ -114,7 +117,7 @@ export function App() {
             </div>
 
             {/* <iframe ref={iframe} src={resolve(__dirname, `../calculators/${Links[0].path}`)}></iframe> */}
-            <BasesCalculator />
+            {content}
         </>
     )
 }
