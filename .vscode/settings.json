@@ -15,9 +15,9 @@
         "**/*.css": {
             "when": "$(basename).scss"
         },
-        "**/*.js": {
-            "when": "$(basename).ts"
-        }
+        // "**/*.js": {
+        //     // "when": "$(basename).ts"
+        // }
     },
     "svg.preview.background": "black"
 }
