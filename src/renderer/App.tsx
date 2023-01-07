@@ -2,6 +2,7 @@ import { useRef, useState } from "react"
 import { assetsPath } from "../Util"
 import { resolve } from "path"
 import { ipcRenderer } from "electron"
+import { BasesCalculator } from "../calculators/bases"
 
 const Links = [
     {
@@ -112,7 +113,8 @@ export function App() {
                 </div>
             </div>
 
-            <iframe ref={iframe} src={resolve(__dirname, `../calculators/${Links[0].path}`)}></iframe>
+            {/* <iframe ref={iframe} src={resolve(__dirname, `../calculators/${Links[0].path}`)}></iframe> */}
+            <BasesCalculator />
         </>
     )
 }
