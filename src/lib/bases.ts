@@ -18,7 +18,7 @@ export const dec_to = (dec: number, base: number): string => {
     do {
         digits.push(dec % base)
         dec = Math.floor(dec / base)
-        found = dec == 0 ? true : false
+        found = dec === 0
     } while (!found)
 
     return String(digits.reverse().join(''))
@@ -79,13 +79,13 @@ export const hex_to_dec = (hex: string) => {
     return dec
 }
 
-export const dec_to_bin = (dec: number) => dec_to(dec, 2)
-export const dec_to_oct = (dec: number) => dec_to(dec, 8)
-export const bin_to_dec = (bin: string | number) => to_dec(bin, 2)
-export const bin_to_oct = (bin: any) => dec_to_oct(bin_to_dec(bin))
-export const bin_to_hex = (bin: string | number) => dec_to_hex(bin_to_dec(bin))
-export const oct_to_dec = (oct: string | number) => to_dec(oct, 8)
-export const oct_to_bin = (oct: string | number) => dec_to_bin(oct_to_dec(oct))
-export const oct_to_hex = (oct: string | number) => dec_to_hex(oct_to_dec(oct))
+export const dec_to_bin = (dec: number | string) => dec_to(Number(dec), 2)
+export const dec_to_oct = (dec: number | string) => dec_to(Number(dec), 8)
+export const bin_to_dec = (bin: string) => to_dec(bin, 2)
+export const bin_to_oct = (bin: string) => dec_to_oct(bin_to_dec(bin))
+export const bin_to_hex = (bin: string) => dec_to_hex(bin_to_dec(bin))
+export const oct_to_dec = (oct: string) => to_dec(oct, 8)
+export const oct_to_bin = (oct: string) => dec_to_bin(oct_to_dec(oct))
+export const oct_to_hex = (oct: string) => dec_to_hex(oct_to_dec(oct))
 export const hex_to_bin = (hex: string) => dec_to_bin(hex_to_dec(hex))
 export const hex_to_oct = (hex: string) => dec_to_oct(hex_to_dec(hex))
