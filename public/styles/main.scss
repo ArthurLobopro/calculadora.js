@@ -1,6 +1,7 @@
 //Variaveis
 
 @import url(../fonts/css-import/Nunito.css);
+@import url(./calculators/bases.css);
 
 $fundo: #1e1e1e;
 $componets-fundo: #000;
@@ -9,6 +10,7 @@ $componets-fundo: #000;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    outline: 0;
 }
 
 .flex-center {
@@ -22,25 +24,22 @@ body {
     background: $fundo;
     height: 100vh;
     overflow: hidden;
-
-    @extend .flex-center;
-    flex-direction: column;
 }
 
-iframe {
+#root {
+    width: 100%;
     height: 100%;
-    display: block;
-    user-select: none;
-    border: none;
-}
+    padding: 0 5px 5px;
 
-#container {
-    width: max-content;
-    height: 100%;
-    align-self: center;
-    margin: 0 0 30px 0;
-    box-sizing: content-box;
-    padding: 0 0 5px;
+    &:has(#fundo-invisivel) {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content 1fr;
+    }
+
+    .calculator-wrapper {
+        height: 100%;
+    }
 }
 
 #menu {
