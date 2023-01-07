@@ -31,4 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const frame = new electronFrame()
         frame.insert()
     }
+
+    require("../renderer/renderer.js")
 })
