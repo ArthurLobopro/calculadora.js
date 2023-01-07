@@ -1,8 +1,8 @@
-const { ipcRenderer, contextBridge } = require('electron')
-const { electronFrame } = require('electron-frame/renderer')
+import { ipcRenderer, contextBridge } from 'electron'
+import { ElectronFrame } from 'electron-frame/renderer'
 
-const getArgValue = arg => {
-    const argString = process.argv.find(argvArg => argvArg.includes(arg))
+const getArgValue = (arg: string) => {
+    const argString = process.argv.find(argvArg => argvArg.includes(arg)) as string
     return argString.split("=")[1]
 }
 
@@ -14,10 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const isMain = location.href.search('index.html') !== -1
 
     if (isMain) {
-        const imageLinks = document.querySelectorAll('ul > li > img')
+        const imageLinks = document.querySelectorAll('ul > li > img') as NodeListOf<HTMLImageElement>
         imageLinks.forEach(i => {
-            i.onclick = event => {
-                const href = event.target.dataset.href
+            i.onclick = (event: MouseEvent) => {
+                const href = (event.currentTarget as HTMLElement).dataset?.href
 
                 ipcRenderer.send('new-window', href)
 
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (process.isMainFrame && process.platform !== "linux") {
-        const frame = new electronFrame()
+        const frame = new ElectronFrame({})
         frame.insert()
     }
 
