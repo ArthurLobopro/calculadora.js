@@ -3,6 +3,7 @@ import { assetsPath } from "../../Util"
 import { resolve } from "path"
 import { ipcRenderer } from "electron"
 import { BasesCalculator } from "../../calculators/bases"
+import { PGCalculator } from "../../calculators/pg"
 
 const Links = [
     {
@@ -81,7 +82,7 @@ export function Home() {
         })
     }
 
-    const [content, setContent] = useState(<BasesCalculator changeTitle={setTitle} />)
+    const [content, setContent] = useState(<PGCalculator changeTitle={setTitle} />)
 
     return (
         <>
