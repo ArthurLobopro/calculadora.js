@@ -3,7 +3,8 @@ import { assetsPath } from "../../Util"
 import { resolve } from "path"
 import { ipcRenderer } from "electron"
 import { BasesCalculator } from "./bases"
-import { PGCalculator } from "../pg"
+import { PGCalculator } from "./pg"
+import { PACalculator } from "./pa"
 
 const Links = {
     // "Padrão": {
@@ -26,10 +27,10 @@ const Links = {
     //     arg: "time/time.html",
     //     component: <></>
     // },
-    // "PA": {
-    //     arg: "pa/index.html",
-    //     component: <></>
-    // },
+    "PA": {
+        arg: "--pa",
+        component: PACalculator
+    },
     "PG": {
         arg: "--pg",
         component: PGCalculator

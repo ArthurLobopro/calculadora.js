@@ -1,7 +1,7 @@
 import { resolve } from "path"
 import React, { useEffect, useState, useRef } from "react"
-import { assetsPath } from "../../Util"
-import { frame } from "../Frame"
+import { assetsPath } from "../../../Util"
+import { frame } from "../../Frame"
 
 interface calculatorPros {
     changeTitle?: (title: string) => void
@@ -143,21 +143,21 @@ export function PGCalculator(props: calculatorPros) {
                         <label>
                             Primeiro Termo:
                             <input
-                                type="text" value={data.first_term} maxLength={3}
+                                type="text" value={data.first_term} maxLength={3} required={true}
                                 onChange={(event) => setData({ ...data, first_term: Number(event.currentTarget.value) })}
                             />
                         </label>
                         <label>
                             Razão:
                             <input
-                                type="text" value={data.razion || ""} maxLength={3}
+                                type="text" value={data.razion || ""} maxLength={3} required={true}
                                 onChange={(event) => setData({ ...data, razion: Number(event.currentTarget.value) })}
                             />
                         </label>
                         <label>
                             Termo:
                             <input
-                                type="text" value={data.term || ""} maxLength={3}
+                                type="text" value={data.term || ""} maxLength={3} required={true}
                                 onChange={(event) => setData({ ...data, term: Number(event.currentTarget.value) })}
                             />
                         </label>
