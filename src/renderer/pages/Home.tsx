@@ -1,8 +1,8 @@
 import { useRef, useState } from "react"
-import { assetsPath } from "../Util"
+import { assetsPath } from "../../Util"
 import { resolve } from "path"
 import { ipcRenderer } from "electron"
-import { BasesCalculator } from "../calculators/bases"
+import { BasesCalculator } from "../../calculators/bases"
 
 const Links = [
     {
@@ -36,7 +36,7 @@ const Links = [
     }
 ]
 
-export function App() {
+export function Home() {
     const isLock = useRef(false)
     const menu = useRef(null as unknown as HTMLDivElement)
     const iframe = useRef(null as unknown as HTMLIFrameElement)
