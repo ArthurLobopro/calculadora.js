@@ -5,37 +5,36 @@ import { ipcRenderer } from "electron"
 import { BasesCalculator } from "../../calculators/bases"
 import { PGCalculator } from "../../calculators/pg"
 
-const Links = [
-    {
-        name: "Padrão",
-        path: "padrao/padrao.html"
-    },
-    {
-        name: "Bases",
-        path: "bases/bases.html",
+const Links = {
+    // "Padrão": {
+    //     arg: "padrao/padrao.html",
+    //     component: <></>
+    // },
+    "Bases": {
+        arg: "--bases",
         component: BasesCalculator
     },
-    {
-        name: "Eq. 2º Grau",
-        path: "equacao/equacao.html"
-    },
-    {
-        name: "Data",
-        path: "data/data.html"
-    },
-    {
-        name: "Tempo",
-        path: "time/time.html"
-    },
-    {
-        name: "PA",
-        path: "pa/index.html"
-    },
-    {
-        name: "PG",
-        path: "pg/index.html"
+    // "Eq. 2º Grau": {
+    //     arg: "equacao/equacao.html",
+    //     component: <></>
+    // },
+    // "Data": {
+    //     arg: "data/data.html",
+    //     component: <></>
+    // },
+    // "Tempo": {
+    //     arg: "time/time.html",
+    //     component: <></>
+    // },
+    // "PA": {
+    //     arg: "pa/index.html",
+    //     component: <></>
+    // },
+    "PG": {
+        arg: "--pg",
+        component: PGCalculator
     }
-]
+}
 
 export function Home() {
     const isLock = useRef(false)
@@ -44,9 +43,10 @@ export function Home() {
 
     const [title, setTitle] = useState("Padrão")
 
-    async function handleChangeLoaded(path: string) {
+    async function handleChangeLoaded(name: keyof typeof Links) {
         handleMenuExpandClick()
-        iframe.current.src = resolve(__dirname, `../calculators/${path}`)
+        const Calculator = Links[name].component
+        setContent(<Calculator changeTitle={setTitle} />)
     }
 
     async function handleMenuExpandClick() {
@@ -99,17 +99,16 @@ export function Home() {
             <div id="fundo-invisivel">
                 <div id="menu" ref={menu}>
                     <ul>
-                        {Links.map(link => (
+                        {Object.entries(Links).map(([name, link]) => (
                             <li
-                                data-src={resolve(__dirname, `../calculators/${link.path}`)} key={link.path}
-                                onClick={() => handleChangeLoaded(link.path)}
+                                key={name} onClick={() => handleChangeLoaded(name as keyof typeof Links)}
                             >
-                                {link.name}
+                                {name}
                                 <img
-                                    src={resolve(assetsPath, "hyperlink.png")} data-href={link.path}
+                                    src={resolve(assetsPath, "hyperlink.png")} data-href={link.arg}
                                     onClick={e => {
                                         e.stopPropagation()
-                                        ipcRenderer.send('new-window', link.path)
+                                        ipcRenderer.send('new-window', link.arg)
                                         handleMenuExpandClick()
                                     }}
                                 />

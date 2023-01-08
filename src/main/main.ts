@@ -5,7 +5,6 @@ import { setWindowsJumplist } from "./windows-actions"
 require('electron-frame/main')
 
 const appPath = app.getAppPath()
-const calculatorsFolder = path.resolve(__dirname, '../calculators')
 
 const isWindows = process.platform === "win32"
 const isLinux = process.platform === "linux"
@@ -65,7 +64,7 @@ const calculators = {
     "--padrao": () => createWindow("padrao/padrao.html"),
     "--time": () => createWindow("time/time.html"),
     "--pa": () => createWindow("pa/index.html"),
-    "--pg": () => createWindow("pg/index.html"),
+    "--pg": () => createWindow("/pg"),
 }
 
 if (isWindows) {
@@ -110,8 +109,8 @@ app.on('activate', () => {
     }
 })
 
-ipcMain.on('new-window', (event, arg) => {
-    createWindow(arg)
+ipcMain.on('new-window', (event, arg: keyof typeof calculators) => {
+    calculators?.[arg]?.()
 })
 
 // Faz com que o programa não inicie várias vezes durante a instalação
