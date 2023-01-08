@@ -4,6 +4,7 @@ import { assetsPath } from "../../Util"
 import { buttons } from "./buttonsLayout"
 
 import * as conversor from "../../lib/bases"
+import { frame } from "../../renderer/Frame"
 
 const digits = {
     dec: "0123456789",
@@ -12,13 +13,20 @@ const digits = {
     bin: "01"
 }
 
-export function BasesCalculator() {
+interface calculatorPros {
+    changeTitle?: (title: string) => void
+}
+
+export function BasesCalculator(props: calculatorPros) {
     useEffect(() => {
-        if (process.isMainFrame) {
-            const link = document.querySelector("link[rel='icon'") as HTMLLinkElement
-            if (link) {
-                link.href = resolve(assetsPath, "calculators-icons/binary.svg")
-            }
+        if (window.location.hash === "#/bases") {
+            const link = document.querySelector("link[rel='icon']") as HTMLLinkElement
+            link.href = resolve(assetsPath, "calculators-icons/binary.svg")
+            frame.update()
+        }
+
+        if (props.changeTitle) {
+            props.changeTitle("Bases")
         }
     }, [])
 
