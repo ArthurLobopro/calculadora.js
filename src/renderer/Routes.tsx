@@ -1,6 +1,6 @@
-import { Route, Routes, HashRouter as Router, useNavigate } from "react-router-dom"
+import { Route, Routes, HashRouter as Router } from "react-router-dom"
 import { Home } from "./pages/Home"
-import { BasesCalculator } from "../calculators/bases"
+import { BasesCalculator } from "./pages/bases"
 import { PGCalculator } from "../calculators/pg"
 
 export function AppRoutes() {

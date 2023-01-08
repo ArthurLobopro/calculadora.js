@@ -2,7 +2,7 @@ import { useRef, useState } from "react"
 import { assetsPath } from "../../Util"
 import { resolve } from "path"
 import { ipcRenderer } from "electron"
-import { BasesCalculator } from "../../calculators/bases"
+import { BasesCalculator } from "./bases"
 import { PGCalculator } from "../../calculators/pg"
 
 const Links = {

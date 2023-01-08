@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 import { resolve } from "path"
-import { assetsPath } from "../../Util"
+import { assetsPath } from "../../../Util"
 import { buttons } from "./buttonsLayout"
 
-import * as conversor from "../../lib/bases"
-import { frame } from "../../renderer/Frame"
+import * as conversor from "../../../lib/bases"
+import { frame } from "../../Frame"
 
 const digits = {
     dec: "0123456789",

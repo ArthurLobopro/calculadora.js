@@ -1,4 +1,4 @@
-import { assetsPath } from "../../Util"
+import { assetsPath } from "../../../Util"
 import { resolve } from "path"
 
 export const buttons = [
