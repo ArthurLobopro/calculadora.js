@@ -1,7 +1,7 @@
 import { resolve } from "path"
 import React, { useEffect, useState, useRef } from "react"
 import { assetsPath } from "../../Util"
-import { frame } from "../../renderer/Frame"
+import { frame } from "../Frame"
 
 interface calculatorPros {
     changeTitle?: (title: string) => void

@@ -1,7 +1,7 @@
 import { Route, Routes, HashRouter as Router } from "react-router-dom"
 import { Home } from "./pages/Home"
 import { BasesCalculator } from "./pages/bases"
-import { PGCalculator } from "../calculators/pg"
+import { PGCalculator } from "./pg"
 
 export function AppRoutes() {
     return (

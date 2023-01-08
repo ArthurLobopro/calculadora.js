@@ -3,7 +3,7 @@ import { assetsPath } from "../../Util"
 import { resolve } from "path"
 import { ipcRenderer } from "electron"
 import { BasesCalculator } from "./bases"
-import { PGCalculator } from "../../calculators/pg"
+import { PGCalculator } from "../pg"
 
 const Links = {
     // "Padrão": {
