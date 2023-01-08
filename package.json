@@ -19,6 +19,7 @@
     "lib": "./src/lib",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.6.1",
     "time-converter": "https://github.com/ArthurLobopro/time-converter"
   },
   "devDependencies": {

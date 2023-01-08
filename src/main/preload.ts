@@ -1,5 +1,4 @@
-import { ipcRenderer, contextBridge } from 'electron'
-import { ElectronFrame } from 'electron-frame/renderer'
+import { contextBridge } from 'electron'
 
 const getArgValue = (arg: string) => {
     const argString = process.argv.find(argvArg => argvArg.includes(arg)) as string
@@ -8,19 +7,7 @@ const getArgValue = (arg: string) => {
 
 contextBridge.exposeInMainWorld('require', require)
 contextBridge.exposeInMainWorld('appPath', getArgValue("--app-path"))
-contextBridge.exposeInMainWorld('ipcRenderer', ipcRenderer)
 
 document.addEventListener("DOMContentLoaded", () => {
-    const isMain = location.href.search('index.html') !== -1
-
-    if (isMain) {
-        require("../renderer/renderer.js")
-    } else if (process.isMainFrame) {
-        document.body.style.padding = "5px"
-    }
-
-    if (process.isMainFrame && process.platform !== "linux") {
-        const frame = new ElectronFrame({})
-        frame.insert()
-    }
+    require("../renderer/renderer.js")
 })

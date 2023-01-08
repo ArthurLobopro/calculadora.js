@@ -50,16 +50,16 @@ function createWindow(href: string) {
         icon: path.resolve(appPath, "assets/icon.png"),
         webPreferences: {
             nodeIntegration: true,
-            preload: path.join(__dirname, "preload.js")
+            preload: path.join(__dirname, "preload.js"),
         },
         ...(isLinux ? linuxConfig : defaultConfig)
     })
 
-    win.loadFile(path.resolve(calculatorsFolder, href))
+    win.loadFile(path.resolve(appPath, "public/index.html"), { hash: href })
 }
 
 const calculators = {
-    "--bases": () => createWindow("bases/bases.html"),
+    "--bases": () => createWindow("/bases"),
     "--data": () => createWindow("data/data.html"),
     "--equacao": () => createWindow("equacao/equacao.html"),
     "--padrao": () => createWindow("padrao/padrao.html"),

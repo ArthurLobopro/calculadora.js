@@ -41,6 +41,8 @@ export function Home() {
     const menu = useRef(null as unknown as HTMLDivElement)
     const iframe = useRef(null as unknown as HTMLIFrameElement)
 
+    const [title, setTitle] = useState("Padrão")
+
     async function handleChangeLoaded(path: string) {
         handleMenuExpandClick()
         iframe.current.src = resolve(__dirname, `../calculators/${path}`)
@@ -79,7 +81,7 @@ export function Home() {
         })
     }
 
-    const [content, setContent] = useState(<BasesCalculator />)
+    const [content, setContent] = useState(<BasesCalculator changeTitle={setTitle} />)
 
     return (
         <>
@@ -88,7 +90,7 @@ export function Home() {
                     <div id="menu-expand" onClick={handleMenuExpandClick}>
                         <img src={resolve(assetsPath, "menu.png")} width={30} />
                     </div>
-                    <span id="calculator-name">Padrão</span>
+                    <span id="calculator-name">{title}</span>
                 </div>
                 <AlwaysOnTop />
             </header>
