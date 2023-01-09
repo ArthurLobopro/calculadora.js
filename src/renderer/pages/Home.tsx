@@ -5,6 +5,7 @@ import { ipcRenderer } from "electron"
 import { BasesCalculator } from "./bases"
 import { PGCalculator } from "./pg"
 import { PACalculator } from "./pa"
+import { DataCalculator } from "./data"
 
 const Links = {
     // "Padrão": {
@@ -19,10 +20,10 @@ const Links = {
     //     arg: "equacao/equacao.html",
     //     component: <></>
     // },
-    // "Data": {
-    //     arg: "data/data.html",
-    //     component: <></>
-    // },
+    "Data": {
+        arg: "--data",
+        component: DataCalculator
+    },
     // "Tempo": {
     //     arg: "time/time.html",
     //     component: <></>
@@ -83,7 +84,7 @@ export function Home() {
         })
     }
 
-    const [content, setContent] = useState(<PGCalculator changeTitle={setTitle} />)
+    const [content, setContent] = useState(<DataCalculator changeTitle={setTitle} />)
 
     return (
         <>

@@ -3,9 +3,14 @@
 @import url(../fonts/css-import/Nunito.css);
 @import url(./calculators/bases.css);
 @import url(./calculators/pa-pg.css);
+@import url(./calculators/data.css);
 
-$fundo: #1e1e1e;
-$componets-fundo: #000;
+:root {
+    --fundo: #1e1e1e;
+    --components-fundo: #000;
+    --text-color: #fff;
+    --button-color: #fff;
+}
 
 * {
     margin: 0;
@@ -22,7 +27,7 @@ $componets-fundo: #000;
 
 body {
     font-family: "Nunito";
-    background: $fundo;
+    background: var(--fundo);
     height: 100vh;
     overflow: hidden;
 }
