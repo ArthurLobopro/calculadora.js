@@ -62,7 +62,7 @@ const calculators = {
     "--data": () => createWindow("/data"),
     "--equacao": () => createWindow("equacao/equacao.html"),
     "--padrao": () => createWindow("padrao/padrao.html"),
-    "--time": () => createWindow("time/time.html"),
+    "--time": () => createWindow("/time"),
     "--pa": () => createWindow("/pa"),
     "--pg": () => createWindow("/pg"),
 }

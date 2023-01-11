@@ -6,6 +6,7 @@ import { BasesCalculator } from "./bases"
 import { PGCalculator } from "./pg"
 import { PACalculator } from "./pa"
 import { DataCalculator } from "./data"
+import { TimeCalculator } from "./time"
 
 const Links = {
     // "Padrão": {
@@ -24,10 +25,10 @@ const Links = {
         arg: "--data",
         component: DataCalculator
     },
-    // "Tempo": {
-    //     arg: "time/time.html",
-    //     component: <></>
-    // },
+    "Tempo": {
+        arg: "--time",
+        component: TimeCalculator
+    },
     "PA": {
         arg: "--pa",
         component: PACalculator
@@ -84,7 +85,7 @@ export function Home() {
         })
     }
 
-    const [content, setContent] = useState(<DataCalculator changeTitle={setTitle} />)
+    const [content, setContent] = useState(<TimeCalculator changeTitle={setTitle} />)
 
     return (
         <>

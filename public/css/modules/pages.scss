@@ -26,6 +26,10 @@ button {
         background-color: #111;
     }
 
+    &:active {
+        background-color: #191919;
+    }
+
     &.disable {
         background-color: #404040;
     }
