@@ -7,6 +7,7 @@ import { PGCalculator } from "./pg"
 import { PACalculator } from "./pa"
 import { DataCalculator } from "./data"
 import { TimeCalculator } from "./time"
+import { EquationCalculator } from "./equacao"
 
 const Links = {
     // "Padrão": {
@@ -17,10 +18,10 @@ const Links = {
         arg: "--bases",
         component: BasesCalculator
     },
-    // "Eq. 2º Grau": {
-    //     arg: "equacao/equacao.html",
-    //     component: <></>
-    // },
+    "Eq. 2º Grau": {
+        arg: "--equacao",
+        component: EquationCalculator
+    },
     "Data": {
         arg: "--data",
         component: DataCalculator
@@ -85,7 +86,7 @@ export function Home() {
         })
     }
 
-    const [content, setContent] = useState(<TimeCalculator changeTitle={setTitle} />)
+    const [content, setContent] = useState(<EquationCalculator changeTitle={setTitle} />)
 
     return (
         <>
