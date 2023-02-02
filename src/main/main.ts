@@ -60,7 +60,7 @@ function createWindow(href: string) {
 const calculators = {
     "--bases": () => createWindow("/bases"),
     "--data": () => createWindow("/data"),
-    "--equacao": () => createWindow("equacao/equacao.html"),
+    "--equacao": () => createWindow("/equacao"),
     "--padrao": () => createWindow("padrao/padrao.html"),
     "--time": () => createWindow("/time"),
     "--pa": () => createWindow("/pa"),
