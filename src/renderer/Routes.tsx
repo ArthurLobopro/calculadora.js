@@ -5,12 +5,14 @@ import { BasesCalculator } from "./pages/bases"
 import { PGCalculator } from "./pages/pg"
 import { DataCalculator } from "./pages/data"
 import { EquationCalculator } from "./pages/equacao"
+import { DefaultCalculator } from "./pages/padrao"
 
 export function AppRoutes() {
     return (
         <Router>
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/padrao" element={<DefaultCalculator />} />
                 <Route path="/bases" element={<BasesCalculator />} />
                 <Route path="/pg" element={<PGCalculator />} />
                 <Route path="/pa" element={<PACalculator />} />

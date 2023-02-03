@@ -8,12 +8,13 @@ import { PACalculator } from "./pa"
 import { DataCalculator } from "./data"
 import { TimeCalculator } from "./time"
 import { EquationCalculator } from "./equacao"
+import { DefaultCalculator } from "./padrao"
 
 const Links = {
-    // "Padrão": {
-    //     arg: "padrao/padrao.html",
-    //     component: <></>
-    // },
+    "Padrão": {
+        arg: "--padrao",
+        component: DefaultCalculator
+    },
     "Bases": {
         arg: "--bases",
         component: BasesCalculator
@@ -86,7 +87,7 @@ export function Home() {
         })
     }
 
-    const [content, setContent] = useState(<EquationCalculator changeTitle={setTitle} />)
+    const [content, setContent] = useState(<Links.Padrão.component changeTitle={setTitle} />)
 
     return (
         <>
