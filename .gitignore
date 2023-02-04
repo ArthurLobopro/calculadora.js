@@ -2,3 +2,4 @@ node_modules/
 *.map
 out/
 *.css
+dist/

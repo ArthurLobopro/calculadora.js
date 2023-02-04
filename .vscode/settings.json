@@ -12,7 +12,12 @@
     "files.exclude": {
         "**/.git": true,
         "node_modules": true,
-        "**/*.css": true
+        "**/*.css": {
+            "when": "$(basename).scss"
+        },
+        "**/*.js": {
+            "when": "$(basename).tsx"
+        }
     },
     "svg.preview.background": "black"
 }

@@ -1,0 +1,167 @@
+//Variaveis
+
+@import url(../fonts/css-import/Nunito.css);
+@import url(./calculators/bases.css);
+@import url(./calculators/pa-pg.css);
+@import url(./calculators/data.css);
+@import url(./calculators/time.css);
+@import url(./calculators/equacao.css);
+@import url(./calculators/padrao.css);
+
+:root {
+    --fundo: #1e1e1e;
+    --components-fundo: #000;
+    --text-color: #fff;
+    --button-color: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: 0;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    font-family: "Nunito";
+    background: var(--fundo);
+    height: 100vh;
+    overflow: hidden;
+}
+
+#root {
+    width: 100%;
+    height: 100%;
+    padding: 0 5px 5px;
+
+    &:has(#fundo-invisivel) {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content 1fr;
+    }
+
+    .calculator-wrapper {
+        height: 100%;
+    }
+}
+
+#menu {
+    position: fixed;
+    width: 0;
+    height: 100%;
+    z-index: 1;
+    top: 30px;
+    left: 0;
+    transition: width 0.5s;
+    background-color: #111;
+    color: #fff;
+    padding: 30px 0 0 0;
+
+    &>ul {
+        transition: all 2s;
+        transition-delay: 0.5s;
+        opacity: 0;
+        display: none;
+        padding: 0 3px 0 5px;
+
+        & li {
+            list-style: none;
+            background-color: #111;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0 2.5px 0 10px;
+            padding: 0;
+            font-size: 17px;
+            border: solid #ddd;
+            border-width: 1px 0 0 0;
+            cursor: pointer;
+            white-space: nowrap;
+
+            &:last-child {
+                border-width: 1px 0;
+            }
+
+            &:hover {
+                background-color: #222;
+            }
+
+            &>img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}
+
+header {
+    user-select: none;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+
+    &>div {
+        @extend .flex-center
+    }
+
+    & #menu-expand {
+        position: relative;
+        z-index: 5;
+        height: 30px;
+        padding: 2.5px 3px;
+
+        &>img {
+            width: 25px;
+        }
+
+        &:hover {
+            // background-color: #505050;
+            background-color: #ffffff26
+        }
+    }
+
+    & #calculator-name {
+        font-family: "Nunito";
+        color: #eee;
+        font-size: 19px;
+        margin: 0 5px;
+    }
+
+    & #toggleAlwaysOnTop {
+        padding: 0 5px;
+
+        &:hover {
+            // background-color: #505050;
+            background-color: #ffffff26
+        }
+    }
+}
+
+#menu.visible {
+    width: 150px;
+
+    &>ul {
+        opacity: 1;
+        display: initial;
+    }
+}
+
+#fundo-invisivel {
+    position: fixed;
+    left: 0;
+    top: 30px;
+    width: 100%;
+    height: 100%;
+    display: none;
+
+    &.visible {
+        display: block;
+    }
+}

@@ -1,0 +1,104 @@
+#equacao {
+    color: var(--text-color);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    label {
+        margin: 0 5px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    input[type="number"] {
+        background: var(--fundo);
+        border: none;
+        border-bottom: 1px #fff solid;
+        width: 30px;
+        margin: -2px 5px 0;
+        appearance: textfield;
+        outline: 0;
+        color: var(--text-color);
+        caret-color: transparent !important;
+        text-align: center;
+
+        &::-webkit-inner-spin-button {
+            display: none;
+        }
+
+        &:focus {
+            border-bottom-width: 2px;
+            font-weight: bold;
+        }
+    }
+
+    #screen {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #formule {
+        font-family: "Roboto Slab";
+    }
+
+    #inputs {
+        margin: 20px auto;
+    }
+
+    .flex {
+        display: flex;
+    }
+
+    #result-wrapper {
+        margin: 5px 0;
+        height: 100%;
+        width: 100%;
+        position: relative;
+
+        #result {
+            display: flex;
+            flex-wrap: wrap;
+            position: absolute;
+            overflow-y: auto;
+            height: 100%;
+            width: 100%;
+
+            &:empty {
+                visibility: hidden;
+            }
+
+            .res {
+                border: 2px solid var(--text-color);
+                width: 100%;
+                height: max-content;
+                padding: 3px;
+                margin: 10px 5px 0 0;
+                text-align: left;
+                border-radius: 4px;
+                display: grid;
+                grid-template-columns: auto max-content;
+
+                &:first-child {
+                    margin: 0 5px 0 0;
+                }
+
+                img {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    button {
+        background-color: var(--fundo);
+        color: var(--text-color);
+        padding: 2px 5px;
+        border: 1px solid var(--text-color);
+        border-radius: 3px;
+        font-size: 18px;
+        margin: 10px auto 0;
+        cursor: pointer;
+    }
+}
