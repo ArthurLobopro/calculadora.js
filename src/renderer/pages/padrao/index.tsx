@@ -3,9 +3,24 @@ import { useEffect, useState } from "react"
 import { assetsPath } from "../../../Util"
 import { frame } from "../../Frame"
 import { buttons } from "./buttonsLayout"
+import * as correct from "../../../lib/correct_operations"
 
 interface Props {
     changeTitle?: (title: string) => void
+}
+
+const operations = {
+    "+": (n1: number, n2: number) => correct.soma(n1, n2),
+    "-": (n1: number, n2: number) => correct.sub(n1, n2),
+    "/": (n1: number, n2: number) => correct.div(n1, n2),
+    "*": (n1: number, n2: number) => correct.mult(n1, n2),
+    "%": (n1: number, n2: number) => correct.mult(n2, correct.div(n1, 100)),
+    "^": (n1: number, n2: number) => correct.pow(n1, n2)
+}
+
+function calculate(n1: number, n2: number, signal: keyof typeof operations) {
+    const operation = operations[signal]
+    return operation(n1, n2)
 }
 
 const memory = {
@@ -60,6 +75,49 @@ export function DefaultCalculator(props: Props) {
         const target = event.currentTarget
         const value = target.dataset.value as string
 
+        if (value === "sqrt" && visor.up.length === 0) {
+            return setVisor({
+                ...visor,
+                down: Math.sqrt(Number(visor.down)).toString()
+            })
+        }
+
+        if (value === "-or+" && visor.down) {
+            return setVisor({
+                ...visor,
+                down: Number(visor.down) * -1 + ""
+            })
+        }
+
+        if (value === "1/x" && visor.up.length === 0) {
+            return setVisor({
+                ...visor,
+                down: calculate(1, Number(visor.down), "/").toString()
+            })
+        }
+
+        if (value === "M+") {
+            memory.add(Number(visor.down))
+            return
+        }
+
+        if (value === "M-") {
+            memory.sub(Number(visor.down))
+            return
+        }
+
+        if (value === "MR") {
+            return setVisor({
+                ...visor,
+                down: memory.value.toString()
+            })
+        }
+
+        if (value === "MC") {
+            memory.clear()
+            return
+        }
+
         if ("0123456789".includes(value)) {
             return setVisor({
                 ...visor,
@@ -108,6 +166,22 @@ export function DefaultCalculator(props: Props) {
                 signal: ""
             })
         }
+
+        if (value === "Enter" && visor.up.length > 0 && visor.signal.length > 0) {
+            const up = Number(visor.up)
+            const down = Number(visor.down)
+
+            const result = calculate(up, down, visor.signal as keyof typeof operations)
+
+            console.log(result)
+
+            return setVisor({
+                up: "",
+                down: result.toString(),
+                signal: ""
+            })
+        }
+
     }
 
     return (
@@ -118,7 +192,7 @@ export function DefaultCalculator(props: Props) {
             </div>
             <div id="keyboard">
                 {buttons.map(button => (
-                    <button data-value={button.value} onClick={HandleClick}>
+                    <button data-value={button.value} onClick={HandleClick} key={button.value}>
                         {button.content}
                     </button>
                 ))}
