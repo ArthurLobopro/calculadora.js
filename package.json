@@ -2,7 +2,7 @@
   "name": "calculadora.js",
   "version": "1.9.1",
   "description": "Calculadora Simples",
-  "main": "src/main/main.js",
+  "main": "dist/main/main.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "yarn scss-compile && electron-forge package",
@@ -41,7 +41,8 @@
           "\\.scss",
           "/build",
           "\\.vscode",
-          "yarn"
+          "yarn",
+          "\\.ts"
         ]
       },
       "makers": [
