@@ -1,15 +1,14 @@
 {
   "name": "calculadora.js",
-  "version": "1.9.1",
+  "version": "2.0.0",
   "description": "Calculadora Simples",
   "main": "dist/main/main.js",
   "scripts": {
     "start": "electron-forge start",
-    "package": "yarn scss-compile && electron-forge package",
-    "make": "yarn scss-compile && electron-forge make",
-    "update-lib": "node update-lib.js",
-    "scss-compile": "yarn sass-compiler --compiler"
-  },
+    "package": "yarn tsc && yarn sass-compiler --compile && electron-forge package",
+    "make": "yarn tsc && yarn sass-compiler --compile && electron-forge make",
+    "update-lib": "node update-lib.js"
+    },
   "keywords": [],
   "author": "Arthur Lobo",
   "license": "MIT",
