@@ -38,7 +38,7 @@ module.exports = {
                 "linux"
             ],
             config: {
-                name: calculadora.js,
+                name: "calculadora.js",
                 productName: "Calculadora.js",
                 categories: [
                     "Utility"
