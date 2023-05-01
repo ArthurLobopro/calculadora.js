@@ -2,11 +2,12 @@ const { version } = require("./package.json")
 const { execSync } = require("child_process")
 const path = require("path")
 
-const icon_path = path.join(__dirname, "build/icon")
+const windows_icon_path = path.join(__dirname, "build/icon.ico")
+const linux_icon_path = path.join(__dirname, "assets/icon.png")
 
 module.exports = {
     packagerConfig: {
-        icon: icon_path,
+        icon: windows_icon_path,
         ignore: [
             "\\.git",
             "\\.scss",
@@ -21,8 +22,8 @@ module.exports = {
             name: "@electron-forge/maker-squirrel",
             config: {
                 name: "calculadora.js",
-                setupIcon: icon_path,
-                iconURL: icon_path,
+                setupIcon: windows_icon_path,
+                iconURL: windows_icon_path,
                 setupExe: `calculadora.js-${version}-setup.exe`
             }
         },
@@ -45,7 +46,7 @@ module.exports = {
                 ],
                 description: "Calculadora simples feita com electron",
                 genericName: "Calculadora",
-                icon: icon_path
+                icon: linux_icon_path
             }
         },
         {
