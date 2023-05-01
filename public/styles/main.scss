@@ -1,6 +1,5 @@
 //Variaveis
 
-@import url(../fonts/css-import/Nunito.css);
 @import url(./calculators/bases.css);
 @import url(./calculators/pa-pg.css);
 @import url(./calculators/data.css);
@@ -160,6 +159,7 @@ header {
     width: 100%;
     height: 100%;
     display: none;
+    z-index: 10;
 
     &.visible {
         display: block;
