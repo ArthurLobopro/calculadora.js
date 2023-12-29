@@ -1,7 +1,11 @@
 import { ElectronFrame } from "electron-frame/renderer"
 
-export const frame = new ElectronFrame({})
+const isLinux = process.platform === "linux"
 
-if (process.isMainFrame && process.platform !== "linux") {
-    frame.insert()
-}
+const frame = new ElectronFrame({
+    autoInsert: !isLinux
+})
+
+const frameToExport = !isLinux ? frame : { update() { } }
+
+export { frameToExport as frame }
