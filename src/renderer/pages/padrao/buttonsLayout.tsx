@@ -14,7 +14,7 @@ export const buttons = [
 
     { value: "^", content: "x²" },
     { value: "sqrt", content: <img src={resolve(assetsPath, "keyboard/sqrt.png")} height="14" alt="Raíz" /> },
-    { value: "1/x", content: <img src={resolve(assetsPath, "keyboard/one-divided-by.png")} height="20" alt="" /> },
+    { value: "1/x", content: <img src={resolve(assetsPath, "keyboard/one-divided-by.svg")} alt="Um dividido por" /> },
     { value: "/", content: "/" },
 
     { value: "7", content: "7" },
