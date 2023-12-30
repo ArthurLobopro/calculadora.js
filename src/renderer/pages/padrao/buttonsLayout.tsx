@@ -13,7 +13,7 @@ export const buttons = [
     { value: "Backspace", content: <img src={resolve(assetsPath, "keyboard/delete.svg")} height={24} alt="Apagar" /> },
 
     { value: "^", content: "x²" },
-    { value: "sqrt", content: <img src={resolve(assetsPath, "keyboard/sqrt.png")} height="14" alt="Raíz" /> },
+    { value: "sqrt", content: <img src={resolve(assetsPath, "keyboard/sqrt.svg")} height={28} alt="Raíz" /> },
     { value: "1/x", content: <img src={resolve(assetsPath, "keyboard/one-divided-by.svg")} alt="Um dividido por" /> },
     { value: "/", content: "/" },
 
