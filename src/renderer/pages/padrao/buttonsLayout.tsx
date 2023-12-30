@@ -10,7 +10,7 @@ export const buttons = [
     { value: "%", content: "%" },
     { value: "Delete", content: "CE" },
     { value: "Escape", content: "C" },
-    { value: "Backspace", content: <img src={resolve(assetsPath, "keyboard/delete.svg")} alt="Apagar" /> },
+    { value: "Backspace", content: <img src={resolve(assetsPath, "keyboard/delete.svg")} height={24} alt="Apagar" /> },
 
     { value: "^", content: "x²" },
     { value: "sqrt", content: <img src={resolve(assetsPath, "keyboard/sqrt.png")} height="14" alt="Raíz" /> },
