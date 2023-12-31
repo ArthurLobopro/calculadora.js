@@ -1,4 +1,4 @@
-import { ElectronFrame } from "electron-frame/renderer"
+import { ElectronFrame } from "electron-frame"
 
 const isLinux = process.platform === "linux"
 
