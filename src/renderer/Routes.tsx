@@ -8,18 +8,22 @@ import { DefaultCalculator } from "./pages/padrao"
 import { PGCalculator } from "./pages/pg"
 import { TimeCalculator } from "./pages/time"
 
+const changeTitle = (title: string) => document.title = title
+
+const commonProps = { changeTitle }
+
 export function AppRoutes() {
     return (
         <Router>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/padrao" element={<DefaultCalculator />} />
-                <Route path="/bases" element={<BasesCalculator />} />
-                <Route path="/pg" element={<PGCalculator />} />
-                <Route path="/pa" element={<PACalculator />} />
-                <Route path="/time" element={<TimeCalculator />} />
-                <Route path="/data" element={<DataCalculator />} />
-                <Route path="/equacao" element={<EquationCalculator />} />
+                <Route path="/padrao" element={<DefaultCalculator {...commonProps} />} />
+                <Route path="/bases" element={<BasesCalculator {...commonProps} />} />
+                <Route path="/pg" element={<PGCalculator {...commonProps} />} />
+                <Route path="/pa" element={<PACalculator {...commonProps} />} />
+                <Route path="/time" element={<TimeCalculator {...commonProps} />} />
+                <Route path="/data" element={<DataCalculator {...commonProps} />} />
+                <Route path="/equacao" element={<EquationCalculator {...commonProps} />} />
             </Routes>
         </Router>
     )
