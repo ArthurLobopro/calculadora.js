@@ -32,7 +32,7 @@ export const buttons = [
     { value: "3", content: "3" },
     { value: "+", content: "+" },
 
-    { value: "-or+", content: <img src={resolve(assetsPath, "keyboard/negative-or-positive.png")} /> },
+    { value: "-or+", content: <img src={resolve(assetsPath, "keyboard/negative-or-positive.svg")} /> },
     { value: "0", content: "0" },
     { value: ",", content: "," },
     { value: "Enter", content: "=" },
