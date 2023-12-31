@@ -52,22 +52,31 @@ body {
 
 #menu {
     position: fixed;
+    top: 30px;
+    left: 0;
+
     width: 0;
     height: 100%;
     z-index: 1;
-    top: 30px;
-    left: 0;
     transition: width 0.5s;
     background-color: #111;
     color: #fff;
-    padding: 30px 0 0 0;
+
+    &.visible {
+        width: 150px;
+
+        &>ul {
+            opacity: 1;
+            display: block;
+        }
+    }
 
     &>ul {
         transition: all 2s;
         transition-delay: 0.5s;
         opacity: 0;
         display: none;
-        padding: 0 3px 0 5px;
+        padding: 0;
 
         & li {
             list-style: none;
@@ -76,17 +85,13 @@ body {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin: 0 2.5px 0 10px;
-            padding: 0;
+            margin: 0;
+            padding: 0 4px;
             font-size: 17px;
-            border: solid #ddd;
-            border-width: 1px 0 0 0;
+            border: 0 solid #ddd;
+            border-bottom-width: 1px;
             cursor: pointer;
             white-space: nowrap;
-
-            &:last-child {
-                border-width: 1px 0;
-            }
 
             &:hover {
                 background-color: #222;
@@ -140,15 +145,6 @@ header {
             // background-color: #505050;
             background-color: #ffffff26
         }
-    }
-}
-
-#menu.visible {
-    width: 150px;
-
-    &>ul {
-        opacity: 1;
-        display: initial;
     }
 }
 

@@ -10,11 +10,11 @@ export const buttons = [
     { value: "%", content: "%" },
     { value: "Delete", content: "CE" },
     { value: "Escape", content: "C" },
-    { value: "Backspace", content: <img src={resolve(assetsPath, "keyboard/delete.svg")} alt="Apagar" /> },
+    { value: "Backspace", content: <img src={resolve(assetsPath, "keyboard/delete.svg")} height={24} alt="Apagar" /> },
 
     { value: "^", content: "x²" },
-    { value: "sqrt", content: <img src={resolve(assetsPath, "keyboard/sqrt.png")} height="14" alt="Raíz" /> },
-    { value: "1/x", content: <img src={resolve(assetsPath, "keyboard/one-divided-by.png")} height="20" alt="" /> },
+    { value: "sqrt", content: <img src={resolve(assetsPath, "keyboard/sqrt.svg")} height={28} alt="Raíz" /> },
+    { value: "1/x", content: <img src={resolve(assetsPath, "keyboard/one-divided-by.svg")} alt="Um dividido por" /> },
     { value: "/", content: "/" },
 
     { value: "7", content: "7" },
@@ -32,7 +32,7 @@ export const buttons = [
     { value: "3", content: "3" },
     { value: "+", content: "+" },
 
-    { value: "-or+", content: <img src={resolve(assetsPath, "keyboard/negative-or-positive.png")} /> },
+    { value: "-or+", content: <img src={resolve(assetsPath, "keyboard/negative-or-positive.svg")} /> },
     { value: "0", content: "0" },
     { value: ",", content: "," },
     { value: "Enter", content: "=" },

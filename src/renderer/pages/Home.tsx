@@ -1,14 +1,14 @@
+import { ipcRenderer } from "electron"
+import { resolve } from "path"
 import { useRef, useState } from "react"
 import { assetsPath } from "../../Util"
-import { resolve } from "path"
-import { ipcRenderer } from "electron"
 import { BasesCalculator } from "./bases"
-import { PGCalculator } from "./pg"
-import { PACalculator } from "./pa"
 import { DataCalculator } from "./data"
-import { TimeCalculator } from "./time"
 import { EquationCalculator } from "./equacao"
+import { PACalculator } from "./pa"
 import { DefaultCalculator } from "./padrao"
+import { PGCalculator } from "./pg"
+import { TimeCalculator } from "./time"
 
 const Links = {
     "Padrão": {
@@ -110,7 +110,7 @@ export function Home() {
                             >
                                 {name}
                                 <img
-                                    src={resolve(assetsPath, "hyperlink.png")} data-href={link.arg}
+                                    src={resolve(assetsPath, "hyperlink.svg")} data-href={link.arg}
                                     onClick={e => {
                                         e.stopPropagation()
                                         ipcRenderer.send('new-window', link.arg)
